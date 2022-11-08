@@ -6,7 +6,7 @@
 #    By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 14:55:05 by jinwoole          #+#    #+#              #
-#    Updated: 2022/03/26 13:17:15 by jinwoole         ###   ########.fr        #
+#    Updated: 2022/11/08 14:59:10 by jinwoole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libft.a
 AR		=	ar rcs
 RM		=	rm -f
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra -g
 FT_DIR	=	./libft_srcs/
 GNL_DIR	=	./gnl_srcs/
 PTF_DIR =	./printf_srcs/
@@ -61,15 +61,9 @@ SRCS	=	$(FT_DIR)ft_isalpha.c \
 			$(LST_DIR)ft_lstsize.c \
 			$(LST_DIR)ft_lstlast.c \
 			$(LST_DIR)ft_lstadd_back.c \
-			$(LST_DIR)ft_lstdelone.c \
-			$(LST_DIR)ft_lstclear.c \
-			$(LST_DIR)ft_lstiter.c \
-			$(LST_DIR)ft_lstmap.c \
-			$(LST_DIR)ft_lstprint.c \
 			$(LST_DIR)ft_lstselect.c \
 			$(LST_DIR)ft_lstfree.c \
 			$(LST_DIR)ft_lstadd.c \
-			$(LST_DIR)ft_lstdel.c \
 			$(GNL_DIR)get_next_line.c \
 			$(GNL_DIR)get_next_line_utils.c \
 			$(PTF_DIR)ft_printf.c \

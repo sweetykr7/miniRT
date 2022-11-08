@@ -24,9 +24,12 @@ typedef int             t_bool;
 # define TRUE 1
 
 typedef int             t_object_type;
-# define SP 0
-# define PL 1
-# define CY 2
+# define	SP 0
+# define	PL 1
+# define	CY 2
+# define	A 3
+# define	C 4
+# define	L 5
 
 //빛관련
 # define LIGHT_POINT 10

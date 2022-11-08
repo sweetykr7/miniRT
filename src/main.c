@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 14:07:38 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:44:46 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ int	main(int ac, const char **av)
 	t_mlx		*mlx;
 	t_viewpoint	*vp;
 	t_scene		*scene;
-	t_map		map;
-
 
 	if (ac != 2)
 		ft_error("Put 1 argument\n");

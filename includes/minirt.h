@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:32:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:03:55 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:48:27 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include "structures.h"
+# include "stdio.h"
 
 # define W_WIDTH 800
 # define W_HEIGHT 600
@@ -81,14 +82,15 @@ void		viewpoint_setting(t_viewpoint *vp, const char *f);
 // void		mandelbrot_viewpoint(t_viewpoint *vp);
 // void		julia_viewpoint(t_viewpoint *v);
 // void		burningship_viewpoint(t_viewpoint *v);
-double		atod_check(char *str, int *error);
 
 int			terminate_fractol(t_mlx *mlx);
 void		reset_viewpoint(t_mlx *mlx);
 int			error_return_zero(int *error);
-
+//
+double		ft_atod(char *str);
 void		ft_error(char *err);
-void		map_init(t_scene *world, const char *file);
+void		map_init(const char *file);
+
 
 
 #endif

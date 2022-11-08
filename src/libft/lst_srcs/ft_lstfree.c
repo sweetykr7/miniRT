@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 15:50:39 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/03/26 16:26:51 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:43:01 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_lstfree(t_list *lst)
 		while (tmp)
 		{
 			next = tmp->next;
-			tmp->content = NULL;
 			free(tmp);
 			tmp = next;
 		}
