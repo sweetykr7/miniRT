@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:37:15 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 10:37:16 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:32:03 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_color3        point_light_get(t_scene *scene, t_light *light)
 t_color3        phong_lighting(t_scene *scene)
 {
     t_color3    light_color;
-    t_object    *lights;
+    t_object_light    *lights;
 
     light_color = color3(0, 0, 0); //광원이 하나도 없다면, 빛의 양은 (0, 0, 0)일 것이다.
     lights = scene->light;

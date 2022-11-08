@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:26:15 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 13:04:48 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:36:57 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	hit_cy_cap(t_object *cy_obj, t_ray *ray, t_hit_record *rec, double height)
 {
-	t_cylinder	*cy;
+	t_object_value	*cy;
 	double		r;
 	t_vec3		center;
 	double		root; // float쓸지 double 쓸지 파악 필요, 원래 float였음
@@ -45,11 +45,11 @@ int	hit_cy_cap(t_object *cy_obj, t_ray *ray, t_hit_record *rec, double height)
 
 t_bool	hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
 {
-	const t_cylinder	*cy = cy_obj->element;
-	int					result;
+	t_object_value	*cy;
+	int				result;
 
+	cy = cy_obj->element;
 	result = 0;
-
 	result += hit_cy_cap(cy_obj, ray, rec, -(cy->height / 2));
 	result += hit_cy_cap(cy_obj, ray, rec, cy->height / 2);
 	result += hit_cylinder_side(cy_obj, ray, rec);

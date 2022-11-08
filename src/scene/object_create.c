@@ -1,6 +1,6 @@
 #include "scene.h"
 
-t_object    *object(t_object_type type, void *element, t_color3 albedo)
+t_object    *object(t_object_type type, t_object_value *element, t_color3 albedo)
 {
     t_object    *new;
 
@@ -13,50 +13,57 @@ t_object    *object(t_object_type type, void *element, t_color3 albedo)
     return (new);
 }
 
-t_sphere    *sphere(t_point3 center, double radius)
+t_object_light    *object_light(t_object_type type, t_light *element, t_color3 albedo)
 {
-    t_sphere *sp;
+    t_object_light    *new;
 
-    if(!(sp = (t_sphere *)malloc(sizeof(t_sphere))))
+    if (!(new = (t_object_light *)malloc(sizeof(t_object_light))))
         return (NULL);
-    sp->center = center;
-    sp->radius = radius;
-    sp->radius2 = radius * radius;
-    return (sp);
+    new->type = type;
+    new->element = element;
+    new->next = NULL;
+    new->albedo = albedo;
+    return (new);
 }
 
-	// t_point3	center; // 평면위의 한점
-	// t_vec3		dir;	// 방향
-
-t_plane    *splane(t_point3 center, t_vec3 dir)
+t_object_value	*sphere(t_point3 center, double radius)
 {
-    t_plane *pl;
+	t_object_value	*sp;
 
-    if(!(pl = (t_plane *)malloc(sizeof(t_plane))))
-        return (NULL);
-    pl->center = center;
-    pl->dir = dir;
-    return (pl);
+	sp = (t_object_value *)malloc(sizeof(t_object_value));
+	if (!sp)
+		return (NULL);
+	sp->center = center;
+	sp->radius = radius;
+	sp->radius2 = radius * radius;
+	return (sp);
 }
 
-// struct s_cylinder
-// {
-// 	t_point3	center; // 평면위의 한점
-// 	t_vec3		dir;	// 방향
-// 	double		diameter; //
-// 	double		height;
-// };
-
-t_cylinder	*scylinder(t_point3 center, t_vec3 dir, double diameter, double height)
+t_object_value	*splane(t_point3 center, t_vec3 dir)
 {
-    t_cylinder *cy;
-    if (!(cy = (t_cylinder *)malloc(sizeof(t_cylinder))))
-        return (NULL);
-    cy->center = center;
-    cy->dir = dir;
-    cy->diameter = diameter;
-    cy->height = height;
-    return (cy);
+	t_object_value	*pl;
+
+	pl = (t_object_value *)malloc(sizeof(t_object_value));
+	if (!pl)
+		return (NULL);
+	pl->center = center;
+	pl->dir = dir;
+	return (pl);
+}
+
+
+t_object_value	*scylinder(t_point3 center, t_vec3 dir, double diameter, double height)
+{
+	t_object_value	*cy;
+
+	cy = (t_object_value *)malloc(sizeof(t_object_value));
+	if (!cy)
+		return (NULL);
+	cy->center = center;
+	cy->dir = dir;
+	cy->diameter = diameter;
+	cy->height = height;
+	return (cy);
 }
 
 t_light     *light_point(t_point3 light_origin, t_color3 light_color, double bright_ratio)

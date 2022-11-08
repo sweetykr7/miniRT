@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:36 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 13:00:02 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:42:02 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	color_set(int iter, t_color3 pixel_color)
 // 		iter = burningship(c, 0, mlx->vp);
 // 	return (iter);
 // }
-
+#include <stdio.h>
 
 void	render(t_mlx *mlx, t_scene *scene)
 {
@@ -80,13 +80,16 @@ void	render(t_mlx *mlx, t_scene *scene)
 	img = mlx->img;
 	// iter = 0;
 	// printf("sce le bot : %f\n",scene->camera.left_bottom.x);
-	// printf("scene->canvas.height : %d\n", scene->canvas.height);
+	//printf("scene->ele : %f\n", scene->world->element->center.x);
+
+	// double fov;
+	// fov = 1.5;
 	while (++i < scene->canvas.width)
 	{
 		j = -1;
 		while (++j < scene->canvas.height)
 		{
-			u = (double)i / (scene->canvas.width - 1);
+			u = (double)(i) / (scene->canvas.width - 1);
             v = (double)(scene->canvas.height - j) / (scene->canvas.height - 1);
             scene->ray = ray_primary(&scene->camera, u, v);
             pixel_color = ray_color(scene);

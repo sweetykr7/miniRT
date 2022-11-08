@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:41 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 11:13:20 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:40:47 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ t_complex	screen_to_complex(int count_x, int count_y, t_viewpoint *vp)
 {
 	t_complex	c;
 
-	c.re = ((double)count_x / W_WIDTH * (vp->xmax - vp->xmin)) * \
-							vp->zoom + vp->xmin + vp->offx;
-	c.im = ((double)count_y / W_HEIGHT * (vp->ymax - vp->ymin)) * \
-							vp->zoom + vp->ymin + vp->offy;
+	// c.re = ((double)count_x / W_WIDTH * (vp->xmax - vp->xmin)) * \
+	// 						vp->zoom + vp->xmin + vp->offx;
+	// c.im = ((double)count_y / W_HEIGHT * (vp->ymax - vp->ymin)) * \
+	// 						vp->zoom + vp->ymin + vp->offy;
 	return (c);
 }
 

@@ -9,14 +9,15 @@ typedef struct s_camera		t_camera;
 typedef struct s_canvas		t_canvas;
 // 3. 오브젝트 구조체
 typedef struct s_object		t_object;
+typedef struct s_object_light	t_object_light;
 typedef struct s_sphere		t_sphere;
 typedef struct s_plane		t_plane;
 typedef struct s_cylinder	t_cylinder;
 
 typedef struct s_hit_record	t_hit_record;
 typedef struct s_light		t_light;
-
 typedef struct s_scene		t_scene;
+typedef struct s_object_value t_object_value;
 
 // 4. 식별자 매크로
 typedef int					t_bool;
@@ -93,12 +94,32 @@ struct s_hit_record
 
 // 오브젝트 구조체
 /* * * * 추가 * * * */
-struct                      s_object
+
+struct s_object_value
 {
-    t_object_type   type;
-    void            *element;
-    void            *next;
-    t_color3        albedo;
+	t_point3	center;
+	t_vec3		dir;
+	double		diameter;
+	double		height;
+	double		radius;
+	double		radius2;
+};
+
+
+struct	s_object
+{
+	t_object_type	type;
+	t_object_value	*element;
+	t_object		*next;
+	t_color3		albedo;
+};
+
+struct	s_object_light
+{
+	t_object_type	type;
+	t_light			*element;
+	t_object_light	*next;
+	t_color3		albedo;
 };
 
 struct      s_light
@@ -113,13 +134,15 @@ struct	s_scene
 	t_canvas		canvas;
 	t_camera		camera;
 	t_object		*world;
-	t_object		*light;
+	// t_object		*cur_obj;
+	t_object_light	*light;
 	t_color3		ambient; // 8.4에서 설명할 요소
 	t_ray			ray;
 	t_hit_record	rec;
 	int				mode;
 	int				object_mode;
-	int				object_num;
+	size_t			object_cnt;
+	size_t			total_obj_cnt;
 };
 
 struct s_plane
@@ -135,6 +158,8 @@ struct s_cylinder
 	double		diameter; //
 	double		height;
 };
+
+
 
 
 /* * * * 추가 끝 * * * */

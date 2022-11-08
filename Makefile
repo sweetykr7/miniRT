@@ -6,7 +6,7 @@
 #    By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/08 10:31:56 by sooyokim         ###   ########.fr        #
+#    Updated: 2022/11/08 17:21:34 by sooyokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ LIBFT_LNK = -L $(LIBFT_DIR) -lft
 
 SRCS = $(CTRL_DIR)/keyboard.c $(CTRL_DIR)/mouse.c $(CTRL_DIR)/zoom.c \
 		$(CTRL_DIR)/move.c $(CTRL_DIR)/screen.c \
+		$(CTRL_DIR)/object_move.c $(CTRL_DIR)/object_rotate.c \
 		$(RENDER_DIR)/render.c \
 		$(UTIL_DIR)/terminate.c $(UTIL_DIR)/utils.c \
 		$(UTIL_DIR)/object_utils.c \

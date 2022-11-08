@@ -1,7 +1,0 @@
-{
-	"files.associations": {
-		"structures.h": "c",
-		"minirt.h": "c",
-		"scene.h": "c"
-	}
-}
