@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2021/12/07 20:22:20 by jinwoole          #+#    #+#             */
+/*   Updated: 2022/03/21 19:06:06 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../includes/libft.h"
 
-int	error_return_zero(int *error)
+void	ft_putnbr_fd(int n, int fd)
 {
-	*error = 1;
-	return (0);
-}
+	char	str;
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
+	if (n == -2147483648)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		write(fd, "8", 1);
+		return ;
+	}
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		str = '0' + n % 10;
+	}
+	else
+		str = '0' + n;
+	write(fd, &str, 1);
 }

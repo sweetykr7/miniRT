@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2021/12/05 14:44:11 by jinwoole          #+#    #+#             */
+/*   Updated: 2021/12/16 12:18:36 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "libft.h"
 
-int	error_return_zero(int *error)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	*error = 1;
-	return (0);
-}
+	char	*str;
+	size_t	i;
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
+	if (start >= ft_strlen(s) || len == 0)
+		return (ft_strdup(""));
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == 0)
+		return (0);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

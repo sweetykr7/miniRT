@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2021/12/01 17:40:10 by jinwoole          #+#    #+#             */
+/*   Updated: 2021/12/16 13:09:25 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "libft.h"
 
-int	error_return_zero(int *error)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	*error = 1;
-	return (0);
-}
+	char	ch;
+	char	*str;
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
+	ch = (char)c;
+	str = (char *)b;
+	while (len--)
+		*str++ = ch;
+	return (b);
 }

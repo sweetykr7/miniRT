@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2021/12/06 16:53:57 by jinwoole          #+#    #+#             */
+/*   Updated: 2021/12/15 11:53:10 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "libft.h"
 
-int	error_return_zero(int *error)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	*error = 1;
-	return (0);
-}
+	int		len;
+	int		i;
+	char	*str;
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
+	len = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * len + 1);
+	if (str == 0)
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2022/03/20 15:50:39 by jinwoole          #+#    #+#             */
+/*   Updated: 2022/03/26 16:26:51 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../includes/libft.h"
 
-int	error_return_zero(int *error)
+void	ft_lstfree(t_list *lst)
 {
-	*error = 1;
-	return (0);
-}
+	t_list	*tmp;
+	t_list	*next;
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
+	if (lst)
+	{
+		tmp = lst->next;
+		while (tmp)
+		{
+			next = tmp->next;
+			tmp->content = NULL;
+			free(tmp);
+			tmp = next;
+		}
+		free(lst);
+	}
 }

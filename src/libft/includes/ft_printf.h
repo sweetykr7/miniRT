@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2022/01/31 20:31:50 by jinwoole          #+#    #+#             */
+/*   Updated: 2022/02/08 14:17:59 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	error_return_zero(int *error)
-{
-	*error = 1;
-	return (0);
-}
+# include "stdarg.h"
+# include "unistd.h"
+# include "stdlib.h"
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
-}
+int		ft_printf(const char *str, ...);
+
+#endif

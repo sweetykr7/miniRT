@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:36 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/07 19:45:43 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 11:58:41 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-#include "libft.h"
+#include "../libft/includes/libft.h"
 #include "mlx.h"
 #include <math.h>
 #include "structures.h"

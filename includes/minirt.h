@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:32:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/04 15:06:56 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 12:03:55 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,10 @@ double		atod_check(char *str, int *error);
 int			terminate_fractol(t_mlx *mlx);
 void		reset_viewpoint(t_mlx *mlx);
 int			error_return_zero(int *error);
+
+void		ft_error(char *err);
+void		map_init(t_scene *world, const char *file);
+
 
 #endif
 

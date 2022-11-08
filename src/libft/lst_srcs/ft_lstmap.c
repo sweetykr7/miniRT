@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2021/12/08 13:10:04 by jinwoole          #+#    #+#             */
+/*   Updated: 2022/03/20 15:54:37 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../includes/libft.h"
 
-int	error_return_zero(int *error)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	*error = 1;
-	return (0);
-}
+	t_list	*result;
+	t_list	*tmp;
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
+	if (lst == 0 || f == 0)
+		return (0);
+	result = 0;
+	while (lst)
+	{
+		tmp = ft_lstnew((*f)(lst->content));
+		if (tmp == 0)
+		{
+			ft_lstclear(&result, del);
+			return (0);
+		}
+		ft_lstadd_back(&result, tmp);
+		tmp = tmp->next;
+		lst = lst->next;
+	}
+	return (result);
 }

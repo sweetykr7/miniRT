@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2021/12/05 08:57:21 by jinwoole          #+#    #+#             */
+/*   Updated: 2021/12/05 09:20:01 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "libft.h"
 
-int	error_return_zero(int *error)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	*error = 1;
+	unsigned char	ch;
+	unsigned char	*src;
+	int				i;
+
+	ch = (unsigned char)c;
+	src = (unsigned char *)s;
+	i = 0;
+	while (n--)
+	{
+		if (src[i] == ch)
+			return ((void *)&src[i]);
+		i++;
+	}
 	return (0);
-}
-
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 11:00:28 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:07:38 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_scene	*scene_init(void)
 
 	// malloc 할당 실패 시, 실습에서는 return NULL로 해두었지만, 적절한 에러 처리가 필요하다.
 	if(!(scene = (t_scene *)malloc(sizeof(t_scene))))
-		return (NULL);
+		ft_error("Malloc failure");
+
 	scene->canvas = canvas(800, 600);
 	scene->camera = camera(&scene->canvas, point3(0, 0, 20.6));
 	// world = object(SP, sphere(point3(0, 0, 1), 5), color3(1, 0.5, 0)); // world 에 구1 추가
@@ -55,9 +56,13 @@ int	main(int ac, const char **av)
 	t_mlx		*mlx;
 	t_viewpoint	*vp;
 	t_scene		*scene;
+	t_map		map;
 
-	// if (!input_check(ac, av))
-	// 	return (0);
+
+	if (ac != 2)
+		ft_error("Put 1 argument\n");
+	map_init(av[1]);
+
 	scene = scene_init();
 
 	mlx = init_mlx(av[1], av, scene);

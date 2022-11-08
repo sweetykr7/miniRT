@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2021/12/02 15:42:03 by jinwoole          #+#    #+#             */
+/*   Updated: 2021/12/15 10:06:44 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "libft.h"
 
-int	error_return_zero(int *error)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	*error = 1;
-	return (0);
-}
+	unsigned char	*dst1;
+	unsigned char	*src1;
+	size_t			i;
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
+	i = 0;
+	dst1 = (unsigned char *)dst;
+	src1 = (unsigned char *)src;
+	if (dst == src)
+		return (dst);
+	while (i < n)
+	{
+		dst1[i] = src1[i];
+		i++;
+	}
+	return (dst);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+         #
+#    By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/08 10:31:56 by sooyokim         ###   ########.fr        #
+#    Updated: 2022/11/08 12:01:45 by jinwoole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRCS = $(CTRL_DIR)/keyboard.c $(CTRL_DIR)/mouse.c $(CTRL_DIR)/zoom.c \
 		$(UTIL_DIR)/object_utils.c \
 		$(UTIL_DIR)/vec3_utils_1.c $(UTIL_DIR)/vec3_utils_2.c $(UTIL_DIR)/vec3_utils_3.c $(UTIL_DIR)/vec3_utils_4.c\
 		$(PARSE_DIR)/initial_setting.c \
+		$(PARSE_DIR)/map_check.c \
 		$(PRINT_DIR)/print.c \
 		$(SCENE_DIR)/canvas.c $(SCENE_DIR)/object_create.c $(SCENE_DIR)/scene.c \
 		$(TRACE_DIR)/ray.c \

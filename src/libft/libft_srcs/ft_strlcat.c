@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 11:30:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 12:05:00 by jinwoole         ###   ########.fr       */
+/*   Created: 2021/12/04 08:44:57 by jinwoole          #+#    #+#             */
+/*   Updated: 2021/12/12 21:23:25 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "libft.h"
 
-int	error_return_zero(int *error)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	*error = 1;
-	return (0);
-}
+	size_t	src_len;
+	size_t	dst_len;
 
-void	ft_error(char *err)
-{
-	ft_putendl_fd("Error", 2);
-	ft_putendl_fd(err, 2);
-	exit(1);
+	if (dst == 0 || src == 0)
+		return (0);
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	if (dstsize < dst_len)
+		return (src_len + dstsize);
+	else
+	{
+		dst = dst + dst_len;
+		ft_strlcpy(dst, src, dstsize - dst_len);
+		return (src_len + dst_len);
+	}
 }

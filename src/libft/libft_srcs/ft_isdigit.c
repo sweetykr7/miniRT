@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 16:48:46 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/07/20 13:03:38 by sooyokim         ###   ########.fr       */
+/*   Created: 2021/11/17 14:50:52 by jinwoole          #+#    #+#             */
+/*   Updated: 2021/11/22 14:58:20 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_isdigit(int c)
 {
-	int	res;
-	int	i;
-
-	res = 1;
-	i = 0;
-	while (s2[i] || s1[i])
-	{
-		if (s1[i] != s2[i])
-			return (0);
-		i++;
-	}
-	if (s2[i])
-		return (0);
-	return (res);
+	return (c >= '0' && c <= '9');
 }

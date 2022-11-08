@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 15:47:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 10:43:58 by sooyokim         ###   ########.fr       */
+/*   Created: 2022/01/07 18:58:31 by jinwoole          #+#    #+#             */
+/*   Updated: 2022/02/08 14:19:45 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 # include <unistd.h>
 
-int					ft_strcmp(const char *s1, const char *s2);
-size_t				ft_strlen(const char *s);
-void				ft_putstr(char const *s);
-void				ft_putchar_fd(char c, int fd);
-void				ft_puterror(char const *s);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
+
+char	*get_next_line(int fd);
 
 #endif
