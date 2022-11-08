@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:36 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/07 19:45:43 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 13:00:02 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	color_set(int iter, t_color3 pixel_color)
 // 	return (iter);
 // }
 
+
 void	render(t_mlx *mlx, t_scene *scene)
 {
 	t_img	img;
@@ -78,29 +79,20 @@ void	render(t_mlx *mlx, t_scene *scene)
 	i = -1;
 	img = mlx->img;
 	// iter = 0;
-	
+	// printf("sce le bot : %f\n",scene->camera.left_bottom.x);
+	// printf("scene->canvas.height : %d\n", scene->canvas.height);
 	while (++i < scene->canvas.width)
 	{
 		j = -1;
 		while (++j < scene->canvas.height)
 		{
-			// printf("%d\n", j);
 			u = (double)i / (scene->canvas.width - 1);
             v = (double)(scene->canvas.height - j) / (scene->canvas.height - 1);
-            //ray from camera origin to pixel
             scene->ray = ray_primary(&scene->camera, u, v);
             pixel_color = ray_color(scene);
 			color = color_set(iter, pixel_color);
 			my_mlx_pixel_put(&img, i, j, color);
-			// iter = fractol_select(c, 0, mlx);
-			// if (iter < ITER_MAX)
-			// {
-			// 	color = color_set(iter, mlx->color_set);
-			// 	my_mlx_pixel_put(&img, c.i, c.j, color);
-			// }
-			// else
-			// 	my_mlx_pixel_put(&img, c.i, c.j, 0x00000000);
-		}		
+		}
 	}
 	
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, \

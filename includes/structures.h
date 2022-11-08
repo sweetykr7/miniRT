@@ -19,11 +19,11 @@ typedef struct s_light		t_light;
 typedef struct s_scene		t_scene;
 
 // 4. 식별자 매크로
-typedef int             t_bool;
+typedef int					t_bool;
 # define FALSE 0
 # define TRUE 1
 
-typedef int             t_object_type;
+typedef int					t_object_type;
 # define SP 0
 # define PL 1
 # define CY 2
@@ -33,45 +33,51 @@ typedef int             t_object_type;
 # define EPSILON 1e-6 
 # define LUMEN 3  // 이 값을 조절하여 장면의 밝기를 조절할 수 있다.
 
+# define CAMERA_MODE 0
+# define OBJECT_MODE 1
+
+# define OBJECT_POSITION 0
+# define OBJECT_ROTATE 1
+
 struct s_vec3
 {
-    double x;
-    double y;
-    double z;
+	double	x;
+	double	y;
+	double	z;
 };
 
-struct  s_ray
+struct	s_ray
 {
-    t_point3    orig;
-    t_vec3      dir;
+	t_point3	orig;
+	t_vec3		dir;
 };
 
-struct  s_camera
+struct	s_camera
 {
-    t_point3    orig;  // 카메라 원점(위치)
-    double      viewport_h; // 뷰포트 세로길이
-    double      viewport_w; // 뷰포트 가로길이
-    t_vec3      horizontal; // 수평길이 벡터
-    t_vec3      vertical; // 수직길이 벡터
-    double      focal_len; // focal length
-    t_point3    left_bottom; // 왼쪽 아래 코너점
+	t_point3	orig;  // 카메라 원점(위치)
+	double		viewport_h; // 뷰포트 세로길이
+	double		viewport_w; // 뷰포트 가로길이
+	t_vec3		horizontal; // 수평길이 벡터
+	t_vec3		vertical; // 수직길이 벡터
+	double		focal_len; // focal length
+	t_point3	left_bottom; // 왼쪽 아래 코너점
 };
 
-struct  s_canvas
+struct	s_canvas
 {
-    int     width; //canvas width
-    int     height; //canvas height;
-    double  aspect_ratio; //종횡비
+	int		width; //canvas width
+	int		height; //canvas height;
+	double	aspect_ratio; //종횡비
 };
 
 
 
 // 오브젝트 구조체
-struct  s_sphere
+struct	s_sphere
 {
-    t_point3    center;
-    double      radius;
-    double      radius2;
+	t_point3	center;
+	double		radius;
+	double		radius2;
 };
 
 struct s_hit_record
@@ -102,15 +108,18 @@ struct      s_light
     double      bright_ratio;
 };
 
-struct  s_scene
+struct	s_scene
 {
-    t_canvas        canvas;
-    t_camera        camera;
-    t_object        *world;
-    t_object        *light;
-    t_color3        ambient; // 8.4에서 설명할 요소
-    t_ray           ray;
-    t_hit_record    rec;
+	t_canvas		canvas;
+	t_camera		camera;
+	t_object		*world;
+	t_object		*light;
+	t_color3		ambient; // 8.4에서 설명할 요소
+	t_ray			ray;
+	t_hit_record	rec;
+	int				mode;
+	int				object_mode;
+	int				object_num;
 };
 
 struct s_plane

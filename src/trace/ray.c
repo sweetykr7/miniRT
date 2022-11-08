@@ -27,6 +27,12 @@ t_ray       ray_primary(t_camera *cam, double u, double v)
     ray.orig = cam->orig;
     // left_bottom + u * horizontal + v * vertical - origin 의 단위 벡터.
     ray.dir = vunit(vminus(vplus(vplus(cam->left_bottom, vmult(cam->horizontal, u)), vmult(cam->vertical, v)), cam->orig));
+
+
+    
+    // printf("x : %f\n", ray.dir.x);
+    // printf("y : %f\n", ray.dir.y);
+    // printf("z : %f\n", ray.dir.z);
     return (ray);
 }
 

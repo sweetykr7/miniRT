@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 11:00:28 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:35:04 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ t_scene	*scene_init(void)
 	scene->light = lights;
 	ka = 0.1; // 8.4 에서 설명
 	scene->ambient = vmult(color3(1,1,1), ka); // 8.4 에서 설명
+	scene->mode = CAMERA_MODE;
+	scene->object_mode = OBJECT_POSITION;
+	scene->object_num = 0;
 	return (scene);
 }
 
@@ -59,12 +62,13 @@ int	main(int ac, const char **av)
 	// if (!input_check(ac, av))
 	// 	return (0);
 	scene = scene_init();
-
+	// printf("scene->canvas.height : %d\n", scene->canvas.height);
 	mlx = init_mlx(av[1], av, scene);
+	mlx->scene = scene;
 	render(mlx, scene);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);
 	mlx_hook(mlx->win_ptr, 4, 0, hook_mouse, mlx);
-	mlx_hook(mlx->win_ptr, 17, 0, terminate_fractol, mlx);
+	mlx_hook(mlx->win_ptr, 17, 0, terminate_minirt, mlx);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }
