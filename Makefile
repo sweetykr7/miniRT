@@ -6,7 +6,7 @@
 #    By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/09 12:23:14 by sooyokim         ###   ########.fr        #
+#    Updated: 2022/11/09 19:33:07 by sooyokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SRCS = $(CTRL_DIR)/keyboard.c \
 		$(HIT_DIR)/hit_sphere.c $(HIT_DIR)/hit_plane.c \
 		$(HIT_DIR)/hit_cylinder.c $(HIT_DIR)/hit_cylinder2.c \
 		$(HIT_DIR)/hit.c $(HIT_DIR)/normal.c \
-		$(RAY_DIR)/phong_lighting.c \
+		$(RAY_DIR)/phong_lighting.c $(RAY_DIR)/phong_lighting2.c \
 		$(SRC_DIR)/main.c
 
 OBJECTS = $(SRCS:.c=.o)

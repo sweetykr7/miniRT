@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:05:04 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 12:06:11 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:41:15 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,8 @@ t_light		*light_point(t_point3 light_origin, t_color3 light_color, \
 t_color3	phong_lighting(t_scene *scene);
 t_color3	point_light_get(t_scene *scene, t_light *light);
 t_bool		in_shadow(t_object *objs, t_ray light_ray, double light_len);
+
+t_color3	specular_color(t_scene *scene, t_light *light, t_vec3 light_dir);
+t_color3	diffuse_color(t_scene *scene, t_light *light, t_vec3 light_dir);
 
 #endif

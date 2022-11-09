@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:20:17 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 12:04:49 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:45:28 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # define MOVE_OFFSET 3
 # define ROTATE_ANGLE 90
 # define FOV_GAP 0.1
+# define KS 0.4 // specular strength
+# define KSN 65 // shininess value
 
 typedef struct s_vec3			t_vec3;
 typedef struct s_vec3			t_point3;
@@ -96,11 +98,11 @@ struct	s_sphere
 
 struct s_hit_record
 {
-	t_point3	p; //교점의 좌표
+	t_point3	p;
+	double		t;
 	t_vec3		normal;
 	double		tmin;
 	double		tmax;
-	double		t; //원점과 교점사이의 거리
 	t_bool		front_face;
 	t_color3	albedo;
 };
@@ -145,7 +147,7 @@ struct	s_scene
 	t_camera		camera;
 	t_object		*world;
 	t_object_light	*light;
-	t_color3		ambient; // 8.4에서 설명할 요소
+	t_color3		ambient;
 	t_ray			ray;
 	t_hit_record	rec;
 	int				mode;
