@@ -6,7 +6,7 @@
 #    By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/09 13:41:26 by jinwoole         ###   ########.fr        #
+#    Updated: 2022/11/09 16:16:20 by jinwoole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRCS = $(CTRL_DIR)/keyboard.c $(CTRL_DIR)/mouse.c $(CTRL_DIR)/zoom.c \
 		$(PARSE_DIR)/insert_objects.c \
 		$(PARSE_DIR)/insert_acl.c \
 		$(PRINT_DIR)/print.c \
-		$(SCENE_DIR)/canvas.c $(SCENE_DIR)/object_create.c $(SCENE_DIR)/scene.c \
+		$(SCENE_DIR)/object_create.c $(SCENE_DIR)/light_create.c \
+		$(SCENE_DIR)/canvas.c $(SCENE_DIR)/scene.c \
 		$(TRACE_DIR)/ray.c \
 		$(HIT_DIR)/hit_sphere.c $(HIT_DIR)/hit_plane.c \
 		$(HIT_DIR)/hit_cylinder.c $(HIT_DIR)/hit_cylinder2.c \
