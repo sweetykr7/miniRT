@@ -60,11 +60,12 @@ struct  s_camera
     t_point3    left_bottom; // 왼쪽 아래 코너점
 };
 
-struct  s_canvas
+struct	s_canvas
 {
-    int     width; //canvas width
-    int     height; //canvas height;
-    double  aspect_ratio; //종횡비
+	int		width; //canvas width
+	int		height; //canvas height;
+	double	aspect_ratio; //종횡비
+	double	fov;
 };
 
 

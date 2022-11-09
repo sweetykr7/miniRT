@@ -6,7 +6,7 @@
 #    By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/08 15:43:18 by jinwoole         ###   ########.fr        #
+#    Updated: 2022/11/09 13:41:26 by jinwoole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,9 @@ SRCS = $(CTRL_DIR)/keyboard.c $(CTRL_DIR)/mouse.c $(CTRL_DIR)/zoom.c \
 		$(UTIL_DIR)/vec3_utils_1.c $(UTIL_DIR)/vec3_utils_2.c $(UTIL_DIR)/vec3_utils_3.c $(UTIL_DIR)/vec3_utils_4.c\
 		$(PARSE_DIR)/initial_setting.c \
 		$(PARSE_DIR)/map_check.c \
+		$(PARSE_DIR)/lst_add.c \
+		$(PARSE_DIR)/insert_objects.c \
+		$(PARSE_DIR)/insert_acl.c \
 		$(PRINT_DIR)/print.c \
 		$(SCENE_DIR)/canvas.c $(SCENE_DIR)/object_create.c $(SCENE_DIR)/scene.c \
 		$(TRACE_DIR)/ray.c \

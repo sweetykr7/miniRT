@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:32:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 15:48:27 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/09 14:13:50 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,6 @@ int			error_return_zero(int *error);
 //
 double		ft_atod(char *str);
 void		ft_error(char *err);
-void		map_init(const char *file);
-
-
 
 #endif
 
