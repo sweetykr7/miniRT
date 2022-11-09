@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:30:35 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 15:39:28 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:26:58 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	cy_boundary(t_object_value *cy, t_vec3 at_point)
 	return (1);
 }
 
-t_vec3	get_cylinder_normal(t_object_value *cy, t_vec3 at_point, double hit_height)
+t_vec3	get_cylinder_normal(t_object_value *cy, t_vec3 at_point, \
+													double hit_height)
 {
 	t_point3	hit_center;
 	t_vec3		normal;
@@ -39,10 +40,10 @@ t_vec3	get_cylinder_normal(t_object_value *cy, t_vec3 at_point, double hit_heigh
 double	cy_discriminant(t_object *cy_obj, t_ray *ray, double *half_b, double *a)
 {
 	t_object_value	*cy;
-	double		c;
-	double		r;
-	double		discriminant;
-	t_vec3		delta_p;
+	double			c;
+	double			r;
+	double			discriminant;
+	t_vec3			delta_p;
 
 	cy = cy_obj->element;
 	r = cy->diameter / 2;

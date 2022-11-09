@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 11:56:28 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:19:30 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,12 @@ int	main(int ac, const char **av)
 	t_mlx		*mlx;
 	t_scene		*scene;
 
-	// if (!input_check(ac, av))
-	// 	return (0);
+	//parsing 영역
 	scene = scene_init();
-	// printf("scene->canvas.height : %d\n", scene->canvas.height);
 	mlx = init_mlx(av[1], av, scene);
 	mlx->scene = scene;
 	render(mlx, scene);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);
-	// mlx_hook(mlx->win_ptr, 4, 0, hook_mouse, mlx);
 	mlx_hook(mlx->win_ptr, 17, 0, terminate_minirt, mlx);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);

@@ -6,7 +6,7 @@
 #    By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/09 11:52:38 by sooyokim         ###   ########.fr        #
+#    Updated: 2022/11/09 12:23:14 by sooyokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,12 @@ SRCS = $(CTRL_DIR)/keyboard.c \
 		$(CTRL_DIR)/camera_move.c \
 		$(CTRL_DIR)/object_move.c $(CTRL_DIR)/object_rotate.c \
 		$(RENDER_DIR)/render.c \
-		$(UTIL_DIR)/terminate.c $(UTIL_DIR)/utils.c \
+		$(UTIL_DIR)/terminate.c \
 		$(UTIL_DIR)/object_utils.c \
 		$(UTIL_DIR)/vec3_utils_1.c $(UTIL_DIR)/vec3_utils_2.c $(UTIL_DIR)/vec3_utils_3.c $(UTIL_DIR)/vec3_utils_4.c\
 		$(PARSE_DIR)/initial_setting.c \
-		$(SCENE_DIR)/canvas.c $(SCENE_DIR)/object_create.c $(SCENE_DIR)/scene.c \
+		$(SCENE_DIR)/object_create.c $(SCENE_DIR)/light_create.c \
+		$(SCENE_DIR)/canvas.c $(SCENE_DIR)/scene.c \
 		$(TRACE_DIR)/ray.c \
 		$(HIT_DIR)/hit_sphere.c $(HIT_DIR)/hit_plane.c \
 		$(HIT_DIR)/hit_cylinder.c $(HIT_DIR)/hit_cylinder2.c \

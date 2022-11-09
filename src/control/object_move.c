@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:09:34 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 18:58:43 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:06:43 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	object_move(t_scene *scene, t_mlx *mlx, char option)
 	double		temp_z;
 	double		offset;
 
-	// printf("test : %f\n", scene->world->element->center.x);
 	get_object_value(scene, &temp_x, &temp_y, &temp_z);
 	offset = MOVE_OFFSET;
 	if (option == 'u')

@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:26:15 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 15:36:57 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:26:44 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 int	hit_cy_cap(t_object *cy_obj, t_ray *ray, t_hit_record *rec, double height)
 {
 	t_object_value	*cy;
-	double		r;
-	t_vec3		center;
-	double		root; // float쓸지 double 쓸지 파악 필요, 원래 float였음
-	double		diameter;
+	double			r;
+	double			diameter;
+	t_vec3			center;
+	double			root; // float쓸지 double 쓸지 파악 필요, 원래 float였음
 
 	cy = cy_obj->element;
 	r = cy->diameter / 2;

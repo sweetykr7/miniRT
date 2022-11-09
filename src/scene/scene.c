@@ -6,13 +6,11 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:30:02 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 10:49:04 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:24:04 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scene.h"
-
-#include <stdio.h>
 
 t_camera	camera(t_canvas *canvas, t_point3 orig)
 {
