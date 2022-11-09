@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:06 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 19:02:42 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 10:50:52 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,18 @@ void	camera_control(int key, t_mlx *mlx)
 		camera_move(mlx->scene, mlx, 'q');
 	if (key == K_W)
 		camera_move(mlx->scene, mlx, 'w');
+	if (key == K_NUM_PLUS)
+		camera_move(mlx->scene, mlx, '+');
+	if (key == K_NUM_MINUS)
+		camera_move(mlx->scene, mlx, '-');
 }
 
 int	hook_key(int key, t_mlx *mlx)
 {
 	if (key == K_ESC)
 		terminate_minirt(mlx);
+	if (key == K_NUM_PLUS || key == K_NUM_MINUS)
+		camera_control(key, mlx);
 	if (mlx->scene->mode == CAMERA_MODE)
 		camera_control(key, mlx);
 	else

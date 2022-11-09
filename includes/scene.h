@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:45:48 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 15:27:33 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 10:38:46 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "structures.h"
 # include "utils.h"
 
-t_canvas		canvas(int width, int height);
+t_canvas		canvas(int width, int height, double fov);
 t_camera		camera(t_canvas *canvas, t_point3 origin);
 
 t_object		*object(t_object_type type, t_object_value *element, \

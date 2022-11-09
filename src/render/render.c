@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:36 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 17:42:02 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 10:32:51 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <math.h>
 #include "structures.h"
 #include "utils.h"
-#include "print.h"
 #include "scene.h"
 #include "trace.h"
 
@@ -70,8 +69,10 @@ void	render(t_mlx *mlx, t_scene *scene)
 	t_img	img;
 	int		iter;
 	int		color;
-	int i;
-	int j;
+	// int i;
+	// int j;
+	double i;
+	double j;
 	double      u;
     double      v;
 	t_color3    pixel_color;
@@ -83,14 +84,14 @@ void	render(t_mlx *mlx, t_scene *scene)
 	//printf("scene->ele : %f\n", scene->world->element->center.x);
 
 	// double fov;
-	// fov = 1.5;
+	// fov = 5;
 	while (++i < scene->canvas.width)
 	{
 		j = -1;
 		while (++j < scene->canvas.height)
 		{
 			u = (double)(i) / (scene->canvas.width - 1);
-            v = (double)(scene->canvas.height - j) / (scene->canvas.height - 1);
+            v = (double)((scene->canvas.height - j)) / (scene->canvas.height - 1);
             scene->ray = ray_primary(&scene->camera, u, v);
             pixel_color = ray_color(scene);
 			color = color_set(iter, pixel_color);

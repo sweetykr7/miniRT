@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 18:56:49 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 11:56:28 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "minirt.h"
 #include "structures.h"
 #include "utils.h"
-#include "print.h"
 #include "scene.h"
 #include "trace.h"
 
@@ -28,7 +27,7 @@ t_scene	*scene_init(void)
 	// malloc 할당 실패 시, 실습에서는 return NULL로 해두었지만, 적절한 에러 처리가 필요하다.
 	if(!(scene = (t_scene *)malloc(sizeof(t_scene))))
 		return (NULL);
-	scene->canvas = canvas(800, 600);
+	scene->canvas = canvas(800, 600, FOV);
 	scene->camera = camera(&scene->canvas, point3(0, 0, 20.6));
 	// world = object(SP, sphere(point3(0, 0, 1), 5), color3(1, 0.5, 0)); // world 에 구1 추가
 	// oadd(&world, object(CY, scylinder(point3(10, 1, 2), vec3(0,1/sqrt(2),1/sqrt(2)), 10, 10), color3(10/255, 0, 255/255))); // world 에 원기둥
@@ -62,7 +61,6 @@ t_scene	*scene_init(void)
 int	main(int ac, const char **av)
 {
 	t_mlx		*mlx;
-	t_viewpoint	*vp;
 	t_scene		*scene;
 
 	// if (!input_check(ac, av))

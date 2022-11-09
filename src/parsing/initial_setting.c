@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 10:46:29 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/04 15:14:01 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 11:56:07 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ t_mlx	*mlx_structure_init(t_mlx *mlx, t_scene *scene)
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, \
 		scene->canvas.width, scene->canvas.height, "miniRT");
 	if (!mlx->win_ptr)
-		return (0);
-	mlx->vp = malloc(sizeof(t_viewpoint));
-	if (!mlx->vp)
-		return (0);
+		return (0);	
 	return (mlx);
 }
 
@@ -56,7 +53,6 @@ t_mlx	*init_mlx(const char *fractol, const char **av, t_scene *scene)
 	mlx->img = new_image(mlx, scene);
 	if (!mlx->img.img_ptr)
 		return (0);
-	mlx->vp = init_viewpoint(mlx->vp);	
 	mlx->color_set = 0.3;
 	// viewpoint_setting(mlx->vp, fractol);
 	return (mlx);
