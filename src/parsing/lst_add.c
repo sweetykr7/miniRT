@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:48:42 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/09 11:50:46 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:49:53 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void lst_orig(t_list *data, char *s)
 	i = 0;
 	while (split[i])
 	{
-		data->origin[i] = ft_atod(split[i]);
+		data->ori[i] = ft_atod(split[i]);
 		i++;
 	}
 }

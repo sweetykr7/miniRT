@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 15:34:10 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:09:00 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,24 @@
 void	scene_set(t_list *e, t_scene *scene)
 {
 	if (e->id == C)
-	{
-		scene->canvas = canvas(800, 600, (double)(180 - e->fov)/90);
-		scene->camera = camera(&scene->canvas, point3(e->origin[0], e->origin[1], e->origin[2]));
+	{ //아마 지금 카메라 벡터를 어떻게 못하는 상황임
+		scene->canvas = canvas(1280, 720, (double)(180 - e->fov)/90);
+		scene->camera = camera(&scene->canvas, point3(e->ori[0], e->ori[1], e->ori[2]));
 	}
 	else if (e->id == A)
-		scene->ambient = vmult(color3(e->rgb[0] / 255, e->rgb[1] / 255, e->rgb[2] / 255), e->ratio); // 8.4 에서 설명
+		scene->ambient = vmult(color3(e->rgb[0] / 255, e->rgb[1] / 255, e->rgb[2] / 255), e->ratio);
+	else if (e->id == L)
+		scene->light = object_light(LIGHT_POINT, light_point(point3(e->ori[0], e->ori[1],e->ori[2]), color3(e->rgb[0], e->rgb[1], e->rgb[2]), e->ratio), color3(0, 0, 0)); // 더미 albedo
+		//여기 마지막 color3?
 	else if (e->id == SP)
-		oadd(&scene->world, object(SP, sphere(point3(-8, 0, 1), 5), color3(0, 0.5, 0))); // world 에 구2 추가
+		oadd(&scene->world, object(SP, sphere(point3(e->ori[0], e->ori[1],e->ori[2]), e->diameter), color3(e->rgb[0], e->rgb[1], e->rgb[2]))); 
 	else if (e->id == CY)
-		oadd(&scene->world, object(CY, scylinder(point3(10, 1, 2), vec3(0,1/sqrt(2),1/sqrt(2)), 3, 20), color3(10/255, 0, 255/255))); // world 에 원기둥
-	else if (e->id == PL)
-		oadd(&scene->world, object(PL, splane(point3(0, 0, 0), vec3(0,0,1)), color3(1, 1, 1))); // world 에 평면 추가
+		oadd(&scene->world, object(CY, scylinder(point3(e->ori[0], e->ori[1],e->ori[2]), vec3(e->vec[0] / sqrt(2), e->vec[1] / sqrt(2),e->vec[2] / sqrt(2)), 3, 20), color3(e->rgb[0], e->rgb[1], e->rgb[2]))); 
+//	else if (e->id == PL)
+		//oadd(&scene->world, object(PL, splane(point3(0, 0, 0), vec3(0,0,1)), color3(1, 1, 1)));
 }
+//할일 1. 변수잘넣기
+
 
 t_scene	*scene_init(t_list *d)
 {
@@ -45,23 +50,16 @@ t_scene	*scene_init(t_list *d)
 	i = 0;
 	if(!(scene = (t_scene *)malloc(sizeof(t_scene))))
 		ft_error("Malloc failure");
-//	scene->world = object(SP, sphere(point3(1, 0, 1), 5), color3(1, 0.5, 0)); // world 에 구1 추가
 	while (i < ft_lstsize(d))
 	{
 		scene_set(ft_lstselect(d, i), scene);
 		printf("<%d>\n", i);
 		i++;
 	}
-
-	//oadd(&world, object(SP, sphere(point3(-8, 0, 1), 5), color3(0, 0.5, 0))); // world 에 구2 추가
-
-
-
 	int cnt = 6;
 	scene->total_obj_cnt = ft_lstsize(d); ///함수에 집어넣어야함. 자동화로
-//	scene->world = world;
-	lights = object_light(LIGHT_POINT, light_point(point3(20, 3, 30), color3(1, 1, 1), 0.4), color3(0, 0, 0)); // 더미 albedo
-	scene->light = lights;
+//	lights = object_light(LIGHT_POINT, light_point(point3(20, 3, 30), color3(1, 1, 1), 0.4), color3(0, 0, 0)); // 더미 albedo
+//	scene->light = lights;
 	ka = 0.1; // 8.4 에서 설명
 	//scene->ambient = vmult(color3(1,1,1), ka); // 8.4 에서 설명
 	scene->mode = CAMERA_MODE;

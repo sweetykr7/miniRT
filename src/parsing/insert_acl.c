@@ -15,7 +15,7 @@ int	insert_c(t_list *data, char **s)
 	lst_orig(data, s[1]);
 	lst_vec(data, s[2]);
 	data->fov = ft_atoi(s[3]);
-	printf("%d, <%f %f %f>, <%f %f %f>, %d\n", data->id, data->origin[0], data->origin[1], data->origin[2], data->vec[0], data->vec[1], data->vec[2], data->fov);
+	printf("%d, <%f %f %f>, <%f %f %f>, %d\n", data->id, data->ori[0], data->ori[1], data->ori[2], data->vec[0], data->vec[1], data->vec[2], data->fov);
 	return (TRUE);
 }
 
@@ -26,6 +26,6 @@ int	insert_l(t_list *data, char **s)
 	data->ratio = ft_atoi(s[2]);
 	lst_rgb(data, s[3]);
 	//보너스,멘더토리 구분할때 이거 들어오면 터지게 예외처리 해야함 아마도
-	printf("%d, <%f %f %f>, %f, <%d %d %d>\n", data->id, data->origin[0], data->origin[1], data->origin[2], data->ratio, data->rgb[0], data->rgb[1], data->rgb[2]);
+	printf("%d, <%f %f %f>, %f, <%d %d %d>\n", data->id, data->ori[0], data->ori[1], data->ori[2], data->ratio, data->rgb[0], data->rgb[1], data->rgb[2]);
 	return (TRUE);
 }
