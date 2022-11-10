@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 10:46:29 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 12:01:27 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:36:11 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_img	new_image(t_mlx *mlx, t_scene *scene)
 }
 
 
-t_mlx	*init_mlx(const char *fractol, const char **av, t_scene *scene)
+t_mlx	*init_mlx(const char **av, t_scene *scene)
 {
 	t_mlx	*mlx;
 

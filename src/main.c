@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 19:46:37 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:36:30 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int ac, const char **av)
 
 	//parsing 영역
 	scene = scene_init();
-	mlx = init_mlx(av[1], av, scene);
+	mlx = init_mlx(av, scene);
 	mlx->scene = scene;
 	render(mlx, scene);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);
