@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:20:17 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 11:14:51 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:25:51 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,8 @@ struct	s_object
 {
 	t_object_type	type;
 	t_object_value	*element;
-	t_object		*next;
 	t_color3		albedo;
+	t_object		*next;
 };
 
 struct	s_object_light
