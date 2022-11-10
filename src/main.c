@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 16:09:00 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:35:36 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ void	scene_set(t_list *e, t_scene *scene)
 	else if (e->id == SP)
 		oadd(&scene->world, object(SP, sphere(point3(e->ori[0], e->ori[1],e->ori[2]), e->diameter), color3(e->rgb[0], e->rgb[1], e->rgb[2]))); 
 	else if (e->id == CY)
-		oadd(&scene->world, object(CY, scylinder(point3(e->ori[0], e->ori[1],e->ori[2]), vec3(e->vec[0] / sqrt(2), e->vec[1] / sqrt(2),e->vec[2] / sqrt(2)), 3, 20), color3(e->rgb[0], e->rgb[1], e->rgb[2]))); 
-//	else if (e->id == PL)
-		//oadd(&scene->world, object(PL, splane(point3(0, 0, 0), vec3(0,0,1)), color3(1, 1, 1)));
+		oadd(&scene->world, object(CY, scylinder(point3(e->ori[0], e->ori[1],e->ori[2]), vec3(0, 1/sqrt(2), 1/sqrt(2)), 3, 20), color3(e->rgb[0], e->rgb[1], e->rgb[2]))); // world 에 원기둥
+	else if (e->id == PL)
+		oadd(&scene->world, object(PL, splane(point3(e->ori[0], e->ori[1],e->ori[2]), vec3(e->vec[0], e->vec[1],e->vec[2])), color3(1,1,1)));
 }
 //할일 1. 변수잘넣기
-
+//할일 2. 수상하게 나타나는 실린더 아래의 그림자
+//할일 3. 실린더의 벡터는 어떻게 들어가는거지
 
 t_scene	*scene_init(t_list *d)
 {
