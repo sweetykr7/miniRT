@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   initial_setting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 10:46:29 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 10:36:11 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/10 11:13:18 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "mlx.h"
-#include "libft.h"
+#include "../libft/includes/libft.h"
 
 t_mlx	*mlx_structure_init(t_mlx *mlx, t_scene *scene)
 {

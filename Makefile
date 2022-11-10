@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+         #
+#    By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/10 10:39:01 by sooyokim         ###   ########.fr        #
+#    Updated: 2022/11/10 13:59:36 by jinwoole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 HEADERS = includes
 
 MLXDIR = miniLibX
-LIBMLX = libmlx.dylib
+LIBMLX = libmlx.a
 
 SRC_DIR = src
 LIBFT_DIR = src/libft
@@ -38,9 +38,14 @@ SRCS = $(CTRL_DIR)/keyboard.c \
 		$(CTRL_DIR)/object_move.c $(CTRL_DIR)/object_rotate.c \
 		$(RENDER_DIR)/render.c \
 		$(UTIL_DIR)/terminate.c \
+		$(UTIL_DIR)/ft_atod.c \
 		$(UTIL_DIR)/object_utils.c \
 		$(UTIL_DIR)/vec3_utils_1.c $(UTIL_DIR)/vec3_utils_2.c $(UTIL_DIR)/vec3_utils_3.c $(UTIL_DIR)/vec3_utils_4.c\
 		$(PARSE_DIR)/initial_setting.c \
+		$(PARSE_DIR)/map_check.c \
+		$(PARSE_DIR)/lst_add.c \
+		$(PARSE_DIR)/insert_objects.c \
+		$(PARSE_DIR)/insert_acl.c \
 		$(SCENE_DIR)/object_create.c $(SCENE_DIR)/light_create.c \
 		$(SCENE_DIR)/canvas.c $(SCENE_DIR)/scene.c \
 		$(HIT_DIR)/hit_sphere.c $(HIT_DIR)/hit_plane.c \
@@ -56,7 +61,8 @@ OBJECTS = $(SRCS:.c=.o)
 	$(MAKE) -C $(MLXDIR)
 	cp $(MLXDIR)/$(LIBMLX) ./
 	$(MAKE) all -C $(LIBFT_DIR)
-	$(CC) -I $(MLXDIR) -I $(HEADERS) -I $(LIBFT_DIR) -c $< -o $@ -O3
+	$(CC) -g -I $(MLXDIR) -I $(HEADERS) -I $(LIBFT_DIR) -c $< -o $@ -O3
+#ㅇㅣ러ㄴ시바
 
 $(NAME) : $(OBJECTS)
 	$(CC) -o $@ $^ $(LIBFT_LNK) $(MLX_LNK) 

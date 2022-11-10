@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:32:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 10:36:21 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/10 11:17:03 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ t_mlx		*init_mlx(const char **av, t_scene *scene);
 t_img		new_image(t_mlx *mlx, t_scene *scene);
 t_object	*get_current_object(t_scene *scene);
 int			terminate_minirt(t_mlx *mlx);
+double		ft_atod(char *str);
+void		ft_error(char *err);
+int			error_return_zero(int *error);
 
 #endif

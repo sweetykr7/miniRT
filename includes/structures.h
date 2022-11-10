@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:20:17 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 19:45:28 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/10 11:14:51 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ typedef int						t_object_type;
 # define SP 0
 # define PL 1
 # define CY 2
+# define A 3
+# define C 4
+# define L 5
+
 # define LIGHT_POINT 10
 
 # define EPSILON 1e-6 

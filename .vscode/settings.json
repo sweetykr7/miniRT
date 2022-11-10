@@ -1,7 +1,6 @@
 {
 	"files.associations": {
-		"structures.h": "c",
-		"mlx.h": "c",
 		"minirt.h": "c"
-	}
+	},
+	"C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
 }

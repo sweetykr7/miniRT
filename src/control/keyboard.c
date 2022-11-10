@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:06 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 10:50:52 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/10 11:12:24 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 #include "keys.h"
 #include <stdlib.h>
 #include "mlx.h"
-#include "libft.h"
+#include "../libft/includes/libft.h"
 
 void	change_object_mode(t_scene *scene)
 {
 	if (!scene->object_mode)
 	{
 		scene->object_mode = OBJECT_ROTATE;
-		ft_putstr("change to [OBJECT ROTATE MODE]\n");
+		ft_putstr_fd("change to [OBJECT ROTATE MODE]\n", 1);
 	}
 	else
 	{
 		scene->object_mode = OBJECT_POSITION;
-		ft_putstr("change to [OBJECT POSITION MODE]\n");
+		ft_putstr_fd("change to [OBJECT POSITION MODE]\n", 1);
 	}
 }
 
@@ -34,7 +34,7 @@ void	change_object(int key, t_scene *scene)
 {
 	if (key == K_R)
 	{
-		ft_putstr("change to next [OBJECT]\n");
+		ft_putstr_fd("change to next [OBJECT]\n", 1);
 		if (scene->object_cnt < scene->total_obj_cnt - 1)
 			scene->object_cnt++;
 		else
@@ -42,7 +42,7 @@ void	change_object(int key, t_scene *scene)
 	}
 	else if (key == K_E)
 	{
-		ft_putstr("change to previous [OBJECT]\n");
+		ft_putstr_fd("change to previous [OBJECT]\n", 1);
 		if (scene->object_cnt == 0)
 			scene->object_cnt = scene->total_obj_cnt - 1;
 		else
@@ -55,12 +55,12 @@ void	change_mode(t_scene *scene)
 	if (!scene->mode)
 	{
 		scene->mode = OBJECT_MODE;
-		ft_putstr("change to [OBJECT MODE]\n");
+		ft_putstr_fd("change to [OBJECT MODE]\n", 1);
 	}
 	else
 	{
 		scene->mode = CAMERA_MODE;
-		ft_putstr("change to [CAMERA MODE]\n");
+		ft_putstr_fd("change to [CAMERA MODE]\n", 1);
 	}
 }
 
