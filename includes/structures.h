@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
+/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:20:17 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 15:25:51 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:24:59 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define FOV_GAP 0.1
 # define KS 0.4 // specular strength
 # define KSN 65 // shininess value
+# define AMBIENT_RATIO 0.1
 
 typedef struct s_vec3			t_vec3;
 typedef struct s_vec3			t_point3;

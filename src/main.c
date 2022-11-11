@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
+/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 16:35:36 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/11 12:07:47 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,42 @@
 
 void	scene_set(t_list *e, t_scene *scene)
 {
+	t_point3	p3;
+	t_point3	c3;
+	t_vec3		v3;
+
+	p3 = point3(e->ori[0], e->ori[1], e->ori[2]);
+	v3 = vec3(e->vec[0], e->vec[1], e->vec[2]);
+	c3 = color3(e->rgb[0], e->rgb[1], e->rgb[2]);
 	if (e->id == C)
-	{ //아마 지금 카메라 벡터를 어떻게 못하는 상황임
-		scene->canvas = canvas(1280, 720, (double)(180 - e->fov)/90);
-		scene->camera = camera(&scene->canvas, point3(e->ori[0], e->ori[1], e->ori[2]));
+	{
+		scene->canvas = canvas(800, 600, (double)(180 - e->fov) / 90);
+		scene->camera = camera(&scene->canvas, p3);
 	}
 	else if (e->id == A)
-		scene->ambient = vmult(color3(e->rgb[0] / 255, e->rgb[1] / 255, e->rgb[2] / 255), e->ratio);
+		scene->ambient = vmult(c3, e->ratio);
 	else if (e->id == L)
-		scene->light = object_light(LIGHT_POINT, light_point(point3(e->ori[0], e->ori[1],e->ori[2]), color3(e->rgb[0], e->rgb[1], e->rgb[2]), e->ratio), color3(0, 0, 0)); // 더미 albedo
-		//여기 마지막 color3?
+		scene->light = object_light(LIGHT_POINT, \
+								light_point(p3, c3, e->ratio), color3(0, 0, 0));
 	else if (e->id == SP)
-		oadd(&scene->world, object(SP, sphere(point3(e->ori[0], e->ori[1],e->ori[2]), e->diameter), color3(e->rgb[0], e->rgb[1], e->rgb[2]))); 
+		oadd(&scene->world, object(SP, sphere(p3, e->diameter), c3));
 	else if (e->id == CY)
-		oadd(&scene->world, object(CY, scylinder(point3(e->ori[0], e->ori[1],e->ori[2]), vec3(0, 1/sqrt(2), 1/sqrt(2)), 3, 20), color3(e->rgb[0], e->rgb[1], e->rgb[2]))); // world 에 원기둥
+		oadd(&scene->world, \
+					object(CY, scylinder(p3, v3, e->diameter, e->height), c3));
 	else if (e->id == PL)
-		oadd(&scene->world, object(PL, splane(point3(e->ori[0], e->ori[1],e->ori[2]), vec3(e->vec[0], e->vec[1],e->vec[2])), color3(1,1,1)));
+		oadd(&scene->world, object(PL, splane(p3, v3), c3));
 }
-//할일 1. 변수잘넣기
-//할일 2. 수상하게 나타나는 실린더 아래의 그림자
-//할일 3. 실린더의 벡터는 어떻게 들어가는거지
 
 t_scene	*scene_init(t_list *d)
 {
 	t_scene		*scene;
 	t_object	*lights;
-	int	i;
 	double		ka;
+	int			i;
 
 	i = 0;
-	if(!(scene = (t_scene *)malloc(sizeof(t_scene))))
+	scene = (t_scene *)malloc(sizeof(t_scene));
+	if (!scene)
 		ft_error("Malloc failure");
 	while (i < ft_lstsize(d))
 	{
@@ -57,19 +63,12 @@ t_scene	*scene_init(t_list *d)
 		printf("<%d>\n", i);
 		i++;
 	}
-	int cnt = 6;
-	scene->total_obj_cnt = ft_lstsize(d); ///함수에 집어넣어야함. 자동화로
-//	lights = object_light(LIGHT_POINT, light_point(point3(20, 3, 30), color3(1, 1, 1), 0.4), color3(0, 0, 0)); // 더미 albedo
-//	scene->light = lights;
-	ka = 0.1; // 8.4 에서 설명
-	//scene->ambient = vmult(color3(1,1,1), ka); // 8.4 에서 설명
+	scene->total_obj_cnt = ft_lstsize(d) - 3;
 	scene->mode = CAMERA_MODE;
 	scene->object_mode = OBJECT_POSITION;
 	scene->object_cnt = 0;
-	// scene->cur_obj = scene->world;
 	return (scene);
 }
-
 
 int	main(int ac, const char **av)
 {
@@ -79,13 +78,8 @@ int	main(int ac, const char **av)
 
 	if (ac != 2)
 		ft_error("Put 1 argument\n");
-	printf("%s\n", av[1]);
 	data = map_init(av[1], scene);
-	//parsing 영역
 	scene = scene_init(data);
-
-	printf("%f\n",scene->camera.viewport_h);
-
 	mlx = init_mlx(av, scene);
 	mlx->scene = scene;
 	render(mlx, scene);

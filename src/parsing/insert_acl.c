@@ -23,7 +23,7 @@ int	insert_l(t_list *data, char **s)
 {
 	data->id = L;
 	lst_orig(data, s[1]);
-	data->ratio = ft_atoi(s[2]);
+	data->ratio = ft_atod(s[2]);
 	lst_rgb(data, s[3]);
 	//보너스,멘더토리 구분할때 이거 들어오면 터지게 예외처리 해야함 아마도
 	printf("%d, <%f %f %f>, %f, <%d %d %d>\n", data->id, data->ori[0], data->ori[1], data->ori[2], data->ratio, data->rgb[0], data->rgb[1], data->rgb[2]);

@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:37:15 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 19:41:59 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:12:58 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ t_color3	phong_lighting(t_scene *scene)
 		lights = lights->next;
 	}
 	light_color = vplus(light_color, scene->ambient);
-	return (vmin(vmult_(light_color, scene->rec.albedo), color3(1, 1, 1)));
+	return (vmin(vmult_(light_color, scene->rec.albedo), color3(255, 255, 255)));
 }

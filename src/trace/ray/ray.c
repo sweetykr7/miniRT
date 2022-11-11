@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:38:27 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 10:52:37 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:12:47 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_color3	ray_color(t_scene *scene)
 	else
 	{
 		t = 0.5 * (scene->ray.dir.y + 1.0);
-		return (vplus(vmult(color3(1, 1, 1), 1.0 - t), \
-									vmult(color3(0.5, 0.7, 1.0), t)));
+		return (vplus(vmult(color3(255, 255, 255), 1.0 - t), \
+									vmult(color3(127, 178, 255), t)));
 	}
 }
