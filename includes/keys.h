@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:31:46 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/04 11:31:48 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:04:37 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,10 @@
 # define K_DIGIT_4		21
 # define K_DIGIT_5		22
 # define K_L			37
+# define K_Q			12
+# define K_W			13
+# define K_E			14
+# define K_R			15
+# define K_T			17
+# define K_G			5
 #endif

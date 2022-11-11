@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:27:57 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 10:28:58 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:57:42 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <math.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "structures.h"
 
 t_vec3		vec3(double x, double y, double z);

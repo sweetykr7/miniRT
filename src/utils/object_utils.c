@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:21:49 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 10:22:23 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/11 12:00:56 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	oadd(t_object **list, t_object *new)
 		return ;
 	}
 	cur = *list;
+	new->next = NULL;
 	while (cur->next)
 		cur = cur->next;
 	cur->next = new;
