@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:30:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/12 17:33:02 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:39:56 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../libft/includes/libft.h"
 #include "mlx.h"
 
-int	terminate_minirt(t_mlx *mlx, t_scene *scene)
+int	terminate_minirt(t_mlx *mlx)
 {
 	free(scene);
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);

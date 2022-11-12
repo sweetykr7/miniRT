@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/12 17:34:39 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:40:21 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ t_scene	*scene_init(t_list *d)
 int	main(int ac, const char **av)
 {
 	t_mlx		*mlx;
-	t_scene		*scene;
 	t_list		*data;
 
 	if (ac != 2)
@@ -85,7 +84,7 @@ int	main(int ac, const char **av)
 	mlx->scene = scene;
 	render(mlx, scene);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);
-	mlx_hook(mlx->win_ptr, 17, 0, terminate_minirt, mlx, scene);
+	mlx_hook(mlx->win_ptr, 17, 0, terminate_minirt, mlx);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:32:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/12 17:33:44 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:40:04 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ t_mlx		*mlx_structure_init(t_mlx *mlx, t_scene *scene);
 t_mlx		*init_mlx(const char **av, t_scene *scene);
 t_img		new_image(t_mlx *mlx, t_scene *scene);
 t_object	*get_current_object(t_scene *scene);
-//int			terminate_minirt(t_mlx *mlx);
-int	terminate_minirt(t_mlx *mlx, t_scene *scene);
-
+int			terminate_minirt(t_mlx *mlx);
 double		ft_atod(char *str);
 void		ft_error(char *err);
 int			error_return_zero(int *error);
