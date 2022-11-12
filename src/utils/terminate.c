@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:30:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/12 17:39:56 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:41:49 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	terminate_minirt(t_mlx *mlx)
 {
-	free(scene);
+	free(mlx->scene);
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 	mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
 	exit(0);

@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/12 17:40:21 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:04:30 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_scene	*scene_init(t_list *d)
 int	main(int ac, const char **av)
 {
 	t_mlx		*mlx;
+	t_scene		*scene;
 	t_list		*data;
 
 	if (ac != 2)

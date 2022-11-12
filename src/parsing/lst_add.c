@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:48:42 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/12 17:28:34 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:48:53 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ void lst_vec(t_list *data, char *s)
 	while (split[i])
 	{
 		data->vec[i] = ft_atod(split[i]);
+		if (data->vec[i] > 1.00000 || data->vec[i] < 0.000000)
+		{
+			free(data);
+			ft_error("Vector currupted");
+		}
 		i++;
 	}
 }

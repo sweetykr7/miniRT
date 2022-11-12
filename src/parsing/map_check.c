@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/12 17:28:01 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:08:50 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	insert_objects(t_list *data, char **s, int flag)
 		if (insert_cy(data, s))
 			return ;
 	}
+	if (s[0][0] == '\n' && ft_strlen(s[0]) == 1)
+		return ;
 	ft_error("File corrupted");
 }
 
