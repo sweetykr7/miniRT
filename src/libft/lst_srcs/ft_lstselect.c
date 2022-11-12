@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstselect.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinwoole <jinwoole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 11:41:56 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/03/24 17:39:10 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/11 12:52:27 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_lstselect(t_list *lst, int index)
 	}
 	if (index > lstsize)
 	{
-		ft_printf("<ft_lstselect : Max index is %d. rtn [0]>", lstsize);
+		ft_printf("<ft_lstselect : %d, Max index is %d. rtn [0]>", index, lstsize);
 		write(1, "\n", 1);
 		return (lst);
 	}

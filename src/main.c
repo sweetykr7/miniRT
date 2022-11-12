@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/11 12:07:47 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:34:39 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_scene	*scene_init(t_list *d)
 	scene->mode = CAMERA_MODE;
 	scene->object_mode = OBJECT_POSITION;
 	scene->object_cnt = 0;
+	free(d);
 	return (scene);
 }
 
@@ -84,7 +85,7 @@ int	main(int ac, const char **av)
 	mlx->scene = scene;
 	render(mlx, scene);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);
-	mlx_hook(mlx->win_ptr, 17, 0, terminate_minirt, mlx);
+	mlx_hook(mlx->win_ptr, 17, 0, terminate_minirt, mlx, scene);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }

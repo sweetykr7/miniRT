@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:48:42 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/10 15:49:53 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:28:34 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,18 @@ void lst_rgb(t_list *data, char *s)
 {
 	char	**split;
 	int		i;
+	int		num;
 
 	split = my_split(s, ',');
 	i = 0;
 	while (split[i])
 	{
+		num = ft_atoi(split[i]);
+		if (num > 255 || num < 0)
+		{
+			free(data);
+			ft_error("RGB overflow");
+		}
 		data->rgb[i] = ft_atoi(split[i]);
 		i++;
 	}

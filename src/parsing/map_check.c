@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/10 15:49:48 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:28:01 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ void	insert_objects(t_list *data, char **s, int flag)
 		if (insert_cy(data, s))
 			return ;
 	}
+	ft_error("File corrupted");
 }
 
 
-t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
+static t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
 {
 	int	is_object;
 	int	i;
-	t_list *data;
 
 	i = -1;
 	while (line)
@@ -98,11 +98,11 @@ t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
 			split = my_split(line, ' ');
 			is_object = insert_only(ft_lstselect(ori, ++i), split);
 			insert_objects(ft_lstselect(ori, i), split, is_object);
-			ft_lstadd_back(&data, ft_lstnew());
+			ft_lstadd_back(&ori, ft_lstnew());
 		}
 		line = get_next_line(fd);	
 	}
-	return (data);
+	return (ori);
 }
 
 t_list	*map_init(const char *file, t_scene *scene)
@@ -114,11 +114,20 @@ t_list	*map_init(const char *file, t_scene *scene)
 
 	fd = open_file(file);
 	line = get_next_line(fd);
-	data = ft_lstnew();
-	if (data == 0)
-		ft_error("Malloc failure");
 	if (line == NULL)
+	{
+		close(fd);
 		ft_error("Empty file");
+	}
+	data = ft_lstnew();
+	if (data == NULL)
+	{
+		close(fd);
+		free(line);
+		ft_error("Malloc failure");
+	}
 	data_insert(data, fd, line, split);
+	close(fd);
+	free(line);
 	return (data);
 }
