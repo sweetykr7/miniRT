@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   object_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:21:49 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/11 12:00:56 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/13 11:24:13 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	oadd(t_object **list, t_object *new)
 	}
 	cur = *list;
 	new->next = NULL;
-	while (cur->next)
+	while (cur->next != NULL)
 		cur = cur->next;
 	cur->next = new;
 }
