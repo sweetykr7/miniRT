@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 11:00:28 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:04:30 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,78 @@
 #include "minirt.h"
 #include "structures.h"
 #include "utils.h"
-#include "print.h"
 #include "scene.h"
 #include "trace.h"
+#include "parsing.h"
 
-t_scene	*scene_init(void)
+void	scene_set(t_list *e, t_scene *scene)
 {
-	t_scene		*scene;
-	t_object	*world;
-	t_object	*lights;
-	double		ka; // 8.4 에서 설명
+	t_point3	p3;
+	t_point3	c3;
+	t_vec3		v3;
 
-	// malloc 할당 실패 시, 실습에서는 return NULL로 해두었지만, 적절한 에러 처리가 필요하다.
-	if(!(scene = (t_scene *)malloc(sizeof(t_scene))))
-		return (NULL);
-	scene->canvas = canvas(800, 600);
-	scene->camera = camera(&scene->canvas, point3(0, 0, 20.6));
-	// world = object(SP, sphere(point3(0, 0, 1), 5), color3(1, 0.5, 0)); // world 에 구1 추가
-	// oadd(&world, object(CY, scylinder(point3(10, 1, 2), vec3(0,1/sqrt(2),1/sqrt(2)), 10, 10), color3(10/255, 0, 255/255))); // world 에 원기둥
-	// oadd(&world, object(PL, splane(point3(0, 0, 5), vec3(0,0,1)), color3(1, 0, 0))); // world 에 평면 추가
-
-	world = object(SP, sphere(point3(0, 0, 1), 5), color3(1, 0.5, 0)); // world 에 구1 추가
-	oadd(&world, object(SP, sphere(point3(-8, 0, 1), 5), color3(0, 0.5, 0))); // world 에 구2 추가
-	oadd(&world, object(CY, scylinder(point3(10, 1, 2), vec3(0,1/sqrt(2),1/sqrt(2)), 10, 10), color3(10/255, 0, 255/255))); // world 에 원기둥
-	oadd(&world, object(PL, splane(point3(0, 0, 0), vec3(0,0,1)), color3(1, 1, 1))); // world 에 평면 추가
-
-	// oadd(&world, object(SP, sphere(point3(0, -1000, 0), 995), color3(1, 1, 1))); // world 에 구3 추가
-	// oadd(&world, object(SP, sphere(point3(0, -1000, 0), 999), color3(1, 1, 1))); // world 에 구3 추가
-	scene->world = world;
-	lights = object(LIGHT_POINT, light_point(point3(20, 3, 30), color3(1, 1, 1), 0.4), color3(0, 0, 0)); // 더미 albedo
-	scene->light = lights;
-	ka = 0.1; // 8.4 에서 설명
-	scene->ambient = vmult(color3(1,1,1), ka); // 8.4 에서 설명
-	return (scene);
+	p3 = point3(e->ori[0], e->ori[1], e->ori[2]);
+	v3 = vec3(e->vec[0], e->vec[1], e->vec[2]);
+	c3 = color3(e->rgb[0], e->rgb[1], e->rgb[2]);
+	if (e->id == C)
+	{
+		scene->canvas = canvas(800, 600, (double)(180 - e->fov) / 90);
+		scene->camera = camera(&scene->canvas, p3);
+	}
+	else if (e->id == A)
+		scene->ambient = vmult(c3, e->ratio);
+	else if (e->id == L)
+		scene->light = object_light(LIGHT_POINT, \
+								light_point(p3, c3, e->ratio), color3(0, 0, 0));
+	else if (e->id == SP)
+		oadd(&scene->world, object(SP, sphere(p3, e->diameter), c3));
+	else if (e->id == CY)
+		oadd(&scene->world, \
+					object(CY, scylinder(p3, v3, e->diameter, e->height), c3));
+	else if (e->id == PL)
+		oadd(&scene->world, object(PL, splane(p3, v3), c3));
 }
 
+t_scene	*scene_init(t_list *d)
+{
+	t_scene		*scene;
+	t_object	*lights;
+	double		ka;
+	int			i;
+
+	i = 0;
+	scene = (t_scene *)malloc(sizeof(t_scene));
+	if (!scene)
+		ft_error("Malloc failure");
+	while (i < ft_lstsize(d))
+	{
+		scene_set(ft_lstselect(d, i), scene);
+		printf("<%d>\n", i);
+		i++;
+	}
+	scene->total_obj_cnt = ft_lstsize(d) - 3;
+	scene->mode = CAMERA_MODE;
+	scene->object_mode = OBJECT_POSITION;
+	scene->object_cnt = 0;
+	free(d);
+	return (scene);
+}
 
 int	main(int ac, const char **av)
 {
 	t_mlx		*mlx;
-	t_viewpoint	*vp;
 	t_scene		*scene;
+	t_list		*data;
 
-	// if (!input_check(ac, av))
-	// 	return (0);
-	scene = scene_init();
-
-	mlx = init_mlx(av[1], av, scene);
+	if (ac != 2)
+		ft_error("Put 1 argument\n");
+	data = map_init(av[1], scene);
+	scene = scene_init(data);
+	mlx = init_mlx(av, scene);
+	mlx->scene = scene;
 	render(mlx, scene);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);
-	mlx_hook(mlx->win_ptr, 4, 0, hook_mouse, mlx);
-	mlx_hook(mlx->win_ptr, 17, 0, terminate_fractol, mlx);
+	mlx_hook(mlx->win_ptr, 17, 0, terminate_minirt, mlx);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }

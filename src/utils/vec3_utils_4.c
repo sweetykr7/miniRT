@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:31:23 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 10:31:23 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:39:14 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_vec3	vunit(t_vec3 vec)
 	len = vlength(vec);
 	if (len == 0)
 	{
-		printf("Error\n:Devider is 0");
 		exit(0);
 	}
 	vec.x /= len;

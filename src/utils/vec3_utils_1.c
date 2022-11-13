@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:22:34 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 10:31:31 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:12:03 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ t_point3	color3(double r, double g, double b)
 {
 	t_color3	color;
 
-	color.x = r;
-	color.y = g;
-	color.z = b;
+	color.x = r/255;
+	color.y = g/255;
+	color.z = b/255;
 	return (color);
 }
 
