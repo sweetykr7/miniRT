@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:20:17 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/11 11:24:59 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:18:22 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define FOV 1.0
 # define MOVE_OFFSET 3
 # define ROTATE_ANGLE 90
-# define FOV_GAP 0.1
+# define FOV_GAP 5
 # define KS 0.4 // specular strength
 # define KSN 65 // shininess value
 # define AMBIENT_RATIO 0.1
@@ -83,6 +83,7 @@ struct	s_camera
 	t_vec3		horizontal; // 수평길이 벡터
 	t_vec3		vertical; // 수직길이 벡터
 	double		focal_len; // focal length
+	int			fov;
 	t_point3	left_bottom; // 왼쪽 아래 코너점
 };
 

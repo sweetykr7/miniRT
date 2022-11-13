@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   camera_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:30 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 11:35:19 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:25:05 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "utils.h"
 #include "scene.h"
+#include <stdio.h>
 
 void	fov_control(t_scene *scene, char option)
 {
 	if (option == '+')
-		scene->canvas.fov = scene->canvas.fov - FOV_GAP;
+	{
+		if (scene->camera.fov >= 175)
+			return ;
+		scene->camera.fov = scene->camera.fov + FOV_GAP;
+		printf("FOV : %d\n", scene->camera.fov);
+	}
 	if (option == '-')
-		scene->canvas.fov = scene->canvas.fov + FOV_GAP;
+		if (scene->camera.fov <= 5)
+			return ;
+		scene->camera.fov = scene->camera.fov - FOV_GAP;
+		printf("FOV : %d\n", scene->camera.fov);
 }
 
 void	camera_move(t_scene *scene, t_mlx *mlx, char option)
@@ -46,6 +55,6 @@ void	camera_move(t_scene *scene, t_mlx *mlx, char option)
 	if (option == 'w')
 		temp_z += offset;
 	fov_control(scene, option);
-	scene->camera = camera(&scene->canvas, vec3(temp_x, temp_y, temp_z));
+	scene->camera = camera(&scene->canvas, vec3(temp_x, temp_y, temp_z), scene->camera.fov);
 	render(mlx, scene);
 }

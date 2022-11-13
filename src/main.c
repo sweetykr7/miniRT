@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/11 12:07:47 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:33:30 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	scene_set(t_list *e, t_scene *scene)
 	c3 = color3(e->rgb[0], e->rgb[1], e->rgb[2]);
 	if (e->id == C)
 	{
-		scene->canvas = canvas(800, 600, (double)(180 - e->fov) / 90);
-		scene->camera = camera(&scene->canvas, p3);
+		scene->canvas = canvas(800, 600, 1.0);
+		scene->camera = camera(&scene->canvas, p3, e->fov);
 	}
 	else if (e->id == A)
 		scene->ambient = vmult(c3, e->ratio);
