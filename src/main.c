@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/13 14:33:30 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:34:51 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	scene_set(t_list *e, t_scene *scene)
 	if (e->id == C)
 	{
 		scene->canvas = canvas(800, 600, 1.0);
-		scene->camera = camera(&scene->canvas, p3, e->fov);
+		scene->camera = camera(&scene->canvas, p3, e->fov, v3);
 	}
 	else if (e->id == A)
 		scene->ambient = vmult(c3, e->ratio);

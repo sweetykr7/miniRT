@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:20:17 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/13 14:18:22 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:34:39 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ struct	s_camera
 	t_vec3		vertical; // 수직길이 벡터
 	double		focal_len; // focal length
 	int			fov;
+	t_vec3		vec;
 	t_point3	left_bottom; // 왼쪽 아래 코너점
 };
 
