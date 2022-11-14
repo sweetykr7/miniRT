@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 12:59:18 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:17:24 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,37 @@ int	insert_only(t_list *data, char **s)
 void	insert_objects(t_list *data, char **s, int flag)
 {
 	if (flag == FALSE)
+	{
+		split_free(s);
 		return ;
+	}
 	if (s[0][0] == 's' && s[0][1] == 'p' && ft_strlen(s[0]) == 2)
 	{
 		if (insert_sp(data, s))
+		{
+			split_free(s);
 			return ;
+		}
 	}
 	if (s[0][0] == 'p' && s[0][1] == 'l' && ft_strlen(s[0]) == 2)
 	{
 		if (insert_pl(data, s))
+		{
+			split_free(s);
 			return ;
+		}
 	}
 	if (s[0][0] == 'c' && s[0][1] == 'y' && ft_strlen(s[0]) == 2)
 	{
 		if (insert_cy(data, s))
+		{
+			split_free(s);
 			return ;
+		}
 	}
+	split_free(s);
 }
+
 
 t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
 {
@@ -86,7 +100,6 @@ t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
 			is_object = insert_only(ft_lstselect(ori, ++i), split);
 			insert_objects(ft_lstselect(ori, i), split, is_object);
 			ft_lstadd_back(&data, ft_lstnew());
-			free(split);
 		}
 		line = get_next_line(fd);
 	}

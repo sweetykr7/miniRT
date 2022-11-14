@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 16:57:40 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/10 15:50:45 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:02:55 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@
 
 typedef struct s_list
 {
-	t_object_type	id;
+	struct s_list	*next;
 	double			ori[3];
-	int				rgb[3];
 	double			vec[3];
 	double			diameter;
 	double			height;
 	double			ratio;
+	t_object_type	id;
+	int				rgb[3];
 	int				fov;
-	struct s_list	*next;
 }	t_list;
 
 /*

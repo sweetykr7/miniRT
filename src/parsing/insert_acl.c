@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:12:18 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 12:13:46 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:16:10 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,14 @@ int	insert_l(t_list *data, char **s)
 	data->ratio = ft_atod(s[2]);
 	lst_rgb(data, s[3]);
 	return (TRUE);
+}
+
+void	split_free(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+		free(split[i++]);
+	free(split);
 }

@@ -6,11 +6,13 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:52:57 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 12:14:19 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:10:26 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parsing.h"
+
+
 
 int	insert_sp(t_list *data, char **s)
 {
