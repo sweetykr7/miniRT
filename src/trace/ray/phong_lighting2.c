@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phong_lighting2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 19:33:29 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 19:41:11 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:25:08 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_color3	specular_color(t_scene *scene, t_light *light, t_vec3 light_dir)
 
 	view_dir = vunit(vmult(scene->ray.dir, -1));
 	reflect_dir = reflect(light_dir, scene->rec.normal);
-
 	spec = pow(fmax(vdot(view_dir, reflect_dir), 0.0), KSN);
 	specular = vmult(vmult(light->light_color, KS), spec);
 	return (specular);

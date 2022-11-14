@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:20:17 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/13 15:34:39 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:11:33 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define STRUCTURES_H
 # include <unistd.h>
 
-# define LUMEN 3  // 이 값을 조절하여 장면의 밝기를 조절할 수 있다.
+# define LUMEN 3
 # define FOV 1.0
 # define MOVE_OFFSET 3
 # define ROTATE_ANGLE 90
 # define FOV_GAP 5
-# define KS 0.4 // specular strength
-# define KSN 65 // shininess value
+# define KS 0.4
+# define KSN 65
 # define AMBIENT_RATIO 0.1
 
 typedef struct s_vec3			t_vec3;
@@ -50,15 +50,10 @@ typedef int						t_object_type;
 # define A 3
 # define C 4
 # define L 5
-
 # define LIGHT_POINT 10
-
 # define EPSILON 1e-6 
-
-
 # define CAMERA_MODE 0
 # define OBJECT_MODE 1
-
 # define OBJECT_POSITION 0
 # define OBJECT_ROTATE 1
 
@@ -90,9 +85,9 @@ struct	s_camera
 
 struct	s_canvas
 {
-	int		width; //canvas width
-	int		height; //canvas height;
-	double	aspect_ratio; //종횡비
+	int		width;
+	int		height;
+	double	aspect_ratio;
 	double	fov;
 };
 
@@ -123,7 +118,6 @@ struct s_object_value
 	double		radius;
 	double		radius2;
 };
-
 
 struct	s_object
 {

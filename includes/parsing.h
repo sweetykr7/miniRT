@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 12:10:02 by jinwoole          #+#    #+#             */
+/*   Updated: 2022/11/14 12:10:21 by jinwoole         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSING_H
 # define PARSING_H
 
-#include "../libft/includes/libft.h"
-#include "../../includes/minirt.h"
-#include <stdio.h> //완성하기 전 지워야.
+# include "../libft/includes/libft.h"
+# include "../../includes/minirt.h"
+# include <stdio.h> //완성하기 전 지워야.
 
 t_list		*map_init(const char *file);
 void		lst_rgb(t_list *data, char *s);
@@ -16,6 +28,5 @@ int			insert_l(t_list *data, char **s);
 int			insert_sp(t_list *data, char **s);
 int			insert_pl(t_list *data, char **s);
 int			insert_cy(t_list *data, char **s);
-
 
 #endif

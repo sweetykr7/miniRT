@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atod.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 12:22:19 by jinwoole          #+#    #+#             */
+/*   Updated: 2022/11/14 12:25:58 by jinwoole         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-int is_space(char c)
+int	is_space(char c)
 {
 	if (c == ' ' || c == '\n' || c == '\t' \
 		|| c == '\v' || c == '\f' || c == '\r')
 		return (1);
 	return (0);
 }
-double  atod_get_number(char *str, double num, double temp, int flag)
+
+double	atod_get_number(char *str, double num, double temp, int flag)
 {
 	if (!flag)
 		num = num * 10 + (*str - '0');
@@ -20,7 +32,7 @@ double  atod_get_number(char *str, double num, double temp, int flag)
 	return (num);
 }
 
-int error_check(char *str, int cnt, int flag)
+int	error_check(char *str, int cnt, int flag)
 {
 	int	*error;
 
@@ -46,11 +58,12 @@ int error_check(char *str, int cnt, int flag)
 	return (1);
 }
 
-double  atod_input_calculator(char *str, double m, double num)
+double	atod_input_calculator(char *str, double m, double num)
 {
-	double  temp;
-	int	 flag;
-	int	 cnt;
+	double	temp;
+	int		flag;
+	int		cnt;
+
 	flag = 0;
 	cnt = 0;
 	if (m < 0)
@@ -73,10 +86,12 @@ double  atod_input_calculator(char *str, double m, double num)
 	}
 	return (num * m);
 }
-double  ft_atod(char *str)
+
+double	ft_atod(char *str)
 {
-	double  m;
-	double  num;
+	double	m;
+	double	num;
+
 	m = 1;
 	while (is_space(*str))
 		str++;
@@ -88,8 +103,6 @@ double  ft_atod(char *str)
 	}
 	num = 0;
 	if (*str < '0' || *str > '9')
-	{
 		return (0);
-	}
 	return (atod_input_calculator(str, m, 0));
 }

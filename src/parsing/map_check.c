@@ -6,23 +6,12 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 12:02:13 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:16:42 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parsing.h"
-#include <stdio.h>
 #include <fcntl.h>
-
-char	**my_split(char *line, char c)
-{
-	char	**split;
-
-	split = ft_split(line, c);
-	if (split == NULL)
-		ft_error("Malloc failure");
-	return (split);
-}
 
 static int	open_file(const char *path)
 {
@@ -81,12 +70,11 @@ void	insert_objects(t_list *data, char **s, int flag)
 	}
 }
 
-
 t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
 {
-	int	is_object;
-	int	i;
-	t_list *data;
+	int		is_object;
+	int		i;
+	t_list	*data;
 
 	i = -1;
 	while (line)
@@ -99,7 +87,7 @@ t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
 			insert_objects(ft_lstselect(ori, i), split, is_object);
 			ft_lstadd_back(&data, ft_lstnew());
 		}
-		line = get_next_line(fd);	
+		line = get_next_line(fd);
 	}
 	return (data);
 }

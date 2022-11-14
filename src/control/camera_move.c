@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:30 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/13 15:46:52 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:20:28 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	camera_move(t_scene *scene, t_mlx *mlx, char option)
 	if (option == 'w')
 		temp_z += offset;
 	fov_control(scene, option);
-	scene->camera = camera(&scene->canvas, vec3(temp_x, temp_y, temp_z), scene->camera.fov, scene->camera.vec);
+	scene->camera = camera(&scene->canvas, vec3(temp_x, temp_y, temp_z), \
+	scene->camera.fov, scene->camera.vec);
 	render(mlx, scene);
 }

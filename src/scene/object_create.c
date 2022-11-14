@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   object_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:17:05 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 12:22:38 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:18:12 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ t_object_value	*splane(t_point3 center, t_vec3 dir)
 	pl->dir = dir;
 	return (pl);
 }
-
 
 t_object_value	*scylinder(t_point3 center, t_vec3 dir, double diameter, \
 															double height)

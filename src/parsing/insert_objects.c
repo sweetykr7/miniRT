@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:52:57 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 11:44:09 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:14:19 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	insert_sp(t_list *data, char **s)
 		ft_error("File currupted");
 	}
 	lst_rgb(data, s[3]);
-	printf("%d, <%f %f %f>, %f, <%d %d %d>\n", data->id, data->ori[0], data->ori[1], data->ori[2], data->diameter, data->rgb[0], data->rgb[1], data->rgb[2]);
 	return (TRUE);
 }
 
@@ -33,7 +32,6 @@ int	insert_pl(t_list *data, char **s)
 	lst_orig(data, s[1]);
 	lst_vec(data, s[2]);
 	lst_rgb(data, s[3]);
-	printf("%d, <%f %f %f>, <%f %f %f>, <%d %d %d>\n", data->id, data->ori[0], data->ori[1], data->ori[2], data->vec[0], data->vec[1], data->vec[2], data->rgb[0], data->rgb[1], data->rgb[2]);
 	return (TRUE);
 }
 
@@ -55,6 +53,5 @@ int	insert_cy(t_list *data, char **s)
 		ft_error("File currupted");
 	}
 	lst_rgb(data, s[5]);
-	printf("%d, <%f %f %f>, <%f %f %f>, %f, %f, <%d %d %d>\n", data->id,  data->ori[0], data->ori[1], data->ori[2], data->vec[0], data->vec[1], data->vec[2], data->diameter, data->height, data->rgb[0], data->rgb[1], data->rgb[2]);
 	return (TRUE);
 }

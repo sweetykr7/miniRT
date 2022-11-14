@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:56:45 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 12:04:28 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:26:38 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ double	sp_discriminant(t_object *sp_obj, t_ray *ray, double *half_b, double *a)
 	return (discriminant);
 }
 
+// sfc: rec의 법선벡터와 광선의 방향벡터를 비교해서 앞면인지 뒷면인지 t_bool 값으로 저장.
 t_bool	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 {
 	double	a;
@@ -48,8 +49,8 @@ t_bool	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 	rec->t = root;
 	rec->p = ray_at(ray, root);
 	rec->normal = vdivide(vminus(rec->p, sp_obj->element->center), \
-													sp_obj->element->radius);
-	set_face_normal(ray, rec); // rec의 법선벡터와 광선의 방향벡터를 비교해서 앞면인지 뒷면인지 t_bool 값으로 저장.
+										sp_obj->element->radius);
+	set_face_normal(ray, rec);
 	rec->albedo = sp_obj->albedo;
 	return (TRUE);
 }

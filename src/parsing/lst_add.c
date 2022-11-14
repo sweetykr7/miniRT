@@ -6,13 +6,13 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:48:42 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 11:53:15 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:16:49 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parsing.h"
 
-void lst_rgb(t_list *data, char *s)
+void	lst_rgb(t_list *data, char *s)
 {
 	char	**split;
 	int		i;
@@ -32,7 +32,7 @@ void lst_rgb(t_list *data, char *s)
 		ft_error("file currupted");
 }
 
-void lst_vec(t_list *data, char *s)
+void	lst_vec(t_list *data, char *s)
 {
 	char	**split;
 	int		i;
@@ -52,7 +52,7 @@ void lst_vec(t_list *data, char *s)
 		ft_error("File currupted");
 }
 
-void lst_orig(t_list *data, char *s)
+void	lst_orig(t_list *data, char *s)
 {
 	char	**split;
 	int		i;
@@ -66,4 +66,14 @@ void lst_orig(t_list *data, char *s)
 	}
 	if (i != 3)
 		ft_error("File currupted");
+}
+
+char	**my_split(char *line, char c)
+{
+	char	**split;
+
+	split = ft_split(line, c);
+	if (split == NULL)
+		ft_error("Malloc failure");
+	return (split);
 }
