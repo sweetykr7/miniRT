@@ -3,31 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 14:53:29 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:01:32 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parsing.h"
-#include <fcntl.h>
-
-static int	open_file(const char *path)
-{
-	char	*pos;
-	int		fd;
-
-	if (!path)
-		ft_error("No file");
-	pos = ft_strchr(path, '.');
-	if (pos && ft_strncmp(pos, ".rt", 4))
-		ft_error("Wrong file format");
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
-		ft_error("Cannot open file");
-	return (fd);
-}
 
 int	insert_only(t_list *data, char **s)
 {
@@ -51,12 +34,7 @@ int	insert_only(t_list *data, char **s)
 
 void	insert_objects(t_list *data, char **s, int flag)
 {
-	if (flag == FALSE)
-	{
-		split_free(s);
-		return ;
-	}
-	if (s[0][0] == 's' && s[0][1] == 'p' && ft_strlen(s[0]) == 2)
+	if (s[0][0] == 's' && s[0][1] == 'p' && ft_strlen(s[0]) == 2 && flag == 1)
 	{
 		if (insert_sp(data, s))
 		{
@@ -64,7 +42,7 @@ void	insert_objects(t_list *data, char **s, int flag)
 			return ;
 		}
 	}
-	if (s[0][0] == 'p' && s[0][1] == 'l' && ft_strlen(s[0]) == 2)
+	if (s[0][0] == 'p' && s[0][1] == 'l' && ft_strlen(s[0]) == 2 && flag == 1)
 	{
 		if (insert_pl(data, s))
 		{
@@ -72,7 +50,7 @@ void	insert_objects(t_list *data, char **s, int flag)
 			return ;
 		}
 	}
-	if (s[0][0] == 'c' && s[0][1] == 'y' && ft_strlen(s[0]) == 2)
+	if (s[0][0] == 'c' && s[0][1] == 'y' && ft_strlen(s[0]) == 2 && flag == 1)
 	{
 		if (insert_cy(data, s))
 		{
@@ -82,7 +60,6 @@ void	insert_objects(t_list *data, char **s, int flag)
 	}
 	split_free(s);
 }
-
 
 t_list	*data_insert(t_list *ori, int fd, char **split)
 {
@@ -106,35 +83,25 @@ t_list	*data_insert(t_list *ori, int fd, char **split)
 		}		
 		line = get_next_line(fd);
 	}
-	// free(line);
 	return (data);
 }
 
 t_list	*map_init(const char *file)
 {
 	char	**split;
-	// char	*line;
 	int		fd;
 	t_list	*data;
 
 	split = NULL;
 	fd = open_file(file);
-	// line = get_next_line(fd);
-	// if (line == NULL)
-	// {
-	// 	close(fd);
-	// 	ft_error("Empty file");
-	// }
 	data = ft_lstnew();
 	if (data == NULL)
 	{
 		close(fd);
-		// free(line);
 		ft_error("Malloc failure");
 	}
 	data_insert(data, fd, split);
 	free(split);
 	close(fd);
-	// free(line);
 	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:21:49 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 14:14:30 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:59:59 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,3 @@ t_object	*olast(t_object *list)
 		list = list->next;
 	return (list);
 }
-
-

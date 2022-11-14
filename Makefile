@@ -6,13 +6,13 @@
 #    By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/14 12:42:48 by jinwoole         ###   ########.fr        #
+#    Updated: 2022/11/14 15:57:03 by jinwoole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 HEADERS = includes
 
 MLXDIR = miniLibX
@@ -46,6 +46,7 @@ SRCS = $(CTRL_DIR)/keyboard.c \
 		$(PARSE_DIR)/lst_add.c \
 		$(PARSE_DIR)/insert_objects.c \
 		$(PARSE_DIR)/insert_acl.c \
+		$(PARSE_DIR)/only_check.c \
 		$(SCENE_DIR)/object_create.c $(SCENE_DIR)/light_create.c \
 		$(SCENE_DIR)/canvas.c $(SCENE_DIR)/scene.c \
 		$(HIT_DIR)/hit_sphere.c $(HIT_DIR)/hit_plane.c \

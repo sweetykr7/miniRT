@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 14:38:47 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:54:00 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,20 @@ t_scene	*scene_init(t_list *d)
 {
 	t_scene		*scene;
 	int			i;
+	int			check[3];
 
 	i = 0;
+	set_check(check);
 	scene = (t_scene *)malloc(sizeof(t_scene));
 	if (!scene)
 		ft_error("Malloc failure");
 	while (i < ft_lstsize(d))
 	{
+		one_vaild_check(ft_lstselect(d, i), check);
 		scene_set(ft_lstselect(d, i), scene);
-		printf("<%d>\n", i);
 		i++;
 	}
+	check_check(check);
 	scene->total_obj_cnt = ft_lstsize(d) - 3;
 	scene->mode = CAMERA_MODE;
 	scene->object_mode = OBJECT_POSITION;

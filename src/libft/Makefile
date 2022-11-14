@@ -6,7 +6,7 @@
 #    By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 14:55:05 by jinwoole          #+#    #+#              #
-#    Updated: 2022/11/14 11:54:46 by jinwoole         ###   ########.fr        #
+#    Updated: 2022/11/14 15:43:03 by jinwoole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libft.a
 AR		=	ar rcs
 RM		=	rm -f
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra -g
 FT_DIR	=	./libft_srcs/
 GNL_DIR	=	./gnl_srcs/
 PTF_DIR =	./printf_srcs/

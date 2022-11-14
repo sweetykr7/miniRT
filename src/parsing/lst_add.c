@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_add.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:48:42 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 14:28:38 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:26:49 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	lst_vec(t_list *data, char *s)
 	while (split[i])
 	{
 		data->vec[i] = ft_atod(split[i]);
-		if (data->vec[i] > 1.00000 || data->vec[i] < 0.000000)
+		if (data->vec[i] > 1.00000 || data->vec[i] < -1.000000)
 			ft_error("Vector currupted");
 		i++;
 	}

@@ -6,13 +6,12 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:52:57 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 14:10:26 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:02:31 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parsing.h"
-
-
+#include <fcntl.h>
 
 int	insert_sp(t_list *data, char **s)
 {
@@ -56,4 +55,20 @@ int	insert_cy(t_list *data, char **s)
 	}
 	lst_rgb(data, s[5]);
 	return (TRUE);
+}
+
+int	open_file(const char *path)
+{
+	char	*pos;
+	int		fd;
+
+	if (!path)
+		ft_error("No file");
+	pos = ft_strchr(path, '.');
+	if (pos && ft_strncmp(pos, ".rt", 4))
+		ft_error("Wrong file format");
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		ft_error("Cannot open file");
+	return (fd);
 }

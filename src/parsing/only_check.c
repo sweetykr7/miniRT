@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal.c                                           :+:      :+:    :+:   */
+/*   only_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 13:52:26 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 15:59:41 by jinwoole         ###   ########.fr       */
+/*   Created: 2022/11/14 15:53:47 by jinwoole          #+#    #+#             */
+/*   Updated: 2022/11/14 16:01:40 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "trace.h"
+#include "../../includes/parsing.h"
 
-void	set_face_normal(t_ray *r, t_hit_record *rec)
+void	set_check(int *check)
 {
-	if (vdot(r->dir, rec->normal) < 0)
-		rec->front_face = 1;
-	else
-		rec->front_face = 0;
-	if (rec->front_face)
-		rec->normal = rec->normal;
-	else
-		rec->normal = vmult(rec->normal, -1);
+	check[0] = 0;
+	check[1] = 0;
+	check[2] = 0;
+}
+
+void	check_check(int *check)
+{
+	if (!(check[0] == 1 && check[1] == 1 && check[2] == 1))
+		ft_error("file currupted");
+}
+
+void	one_vaild_check(t_list *e, int *check)
+{
+	if (e->id == A)
+		check[0]++;
+	else if (e->id == C)
+		check[1]++;
+	else if (e->id == L)
+		check[2]++;
 }

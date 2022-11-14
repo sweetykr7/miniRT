@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:10:02 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 14:16:53 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:58:21 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ int		insert_sp(t_list *data, char **s);
 int		insert_pl(t_list *data, char **s);
 int		insert_cy(t_list *data, char **s);
 void	split_free(char **split);
+int		open_file(const char *path);
+void	set_check(int *check);
+void	check_check(int *check);
+void	one_vaild_check(t_list *e, int *check);
 
 #endif

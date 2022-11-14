@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:20:17 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 12:11:33 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:58:49 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ struct	s_ray
 struct	s_camera
 {
 	t_point3	orig;
-	double		viewport_h; // 뷰포트 세로길이
-	double		viewport_w; // 뷰포트 가로길이
-	t_vec3		horizontal; // 수평길이 벡터
-	t_vec3		vertical; // 수직길이 벡터
-	double		focal_len; // focal length
+	double		viewport_h;
+	double		viewport_w;
+	t_vec3		horizontal;
+	t_vec3		vertical;
+	double		focal_len;
 	int			fov;
 	t_vec3		vec;
-	t_point3	left_bottom; // 왼쪽 아래 코너점
+	t_point3	left_bottom;
 };
 
 struct	s_canvas
