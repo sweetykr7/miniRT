@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/10 15:49:48 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:49:06 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static int	open_file(const char *path)
 	pos = ft_strchr(path, '.');
 	if (pos && ft_strncmp(pos, ".rt", 4))
 		ft_error("Wrong file format");
-
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		ft_error("Cannot open file");
@@ -114,11 +113,20 @@ t_list	*map_init(const char *file, t_scene *scene)
 
 	fd = open_file(file);
 	line = get_next_line(fd);
-	data = ft_lstnew();
-	if (data == 0)
-		ft_error("Malloc failure");
 	if (line == NULL)
+	{
+		close(fd);
 		ft_error("Empty file");
+	}
+	data = ft_lstnew();
+	if (data == NULL)
+	{
+		close(fd);
+		free(line);
+		ft_error("Malloc failure");
+	}
 	data_insert(data, fd, line, split);
+	close(fd);
+	free(line);
 	return (data);
 }

@@ -4,6 +4,11 @@ int	insert_a(t_list *data, char **s)
 {
 	data->id = A;
 	data->ratio = ft_atod(s[1]);
+	if (data->ratio < 0.00000000 || data->ratio > 1.00000000)
+	{
+		free(data);
+		ft_error("File currupted");
+	}
 	lst_rgb(data, s[2]);
 	printf("%d, %f, <%d %d %d>\n", data->id, data->ratio, data->rgb[0], data->rgb[1], data->rgb[2]);
 	return (TRUE);

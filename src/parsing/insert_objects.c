@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:52:57 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/10 15:52:17 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:44:09 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int	insert_sp(t_list *data, char **s)
 	data->id = SP;
 	lst_orig(data, s[1]);
 	data->diameter = ft_atod(s[2]);
+	if (data->diameter <= 0.00000000)
+	{
+		free(data);
+		ft_error("File currupted");
+	}
 	lst_rgb(data, s[3]);
 	printf("%d, <%f %f %f>, %f, <%d %d %d>\n", data->id, data->ori[0], data->ori[1], data->ori[2], data->diameter, data->rgb[0], data->rgb[1], data->rgb[2]);
 	return (TRUE);
@@ -38,7 +43,17 @@ int	insert_cy(t_list *data, char **s)
 	lst_orig(data, s[1]);
 	lst_vec(data, s[2]);
 	data->diameter = ft_atod(s[3]);
+	if (data->diameter <= 0.00000000)
+	{
+		free(data);
+		ft_error("File currupted");
+	}
 	data->height = ft_atod(s[4]);
+	if (data->height <= 0.00000000)
+	{
+		free(data);
+		ft_error("File currupted");
+	}
 	lst_rgb(data, s[5]);
 	printf("%d, <%f %f %f>, <%f %f %f>, %f, %f, <%d %d %d>\n", data->id,  data->ori[0], data->ori[1], data->ori[2], data->vec[0], data->vec[1], data->vec[2], data->diameter, data->height, data->rgb[0], data->rgb[1], data->rgb[2]);
 	return (TRUE);
