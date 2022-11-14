@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 12:05:55 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:02:04 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	main(int ac, const char **av)
 	data = map_init(av[1]);
 	scene = scene_init(data);
 	mlx = init_mlx(scene);
+	ft_lstfree(data);
 	mlx->scene = scene;
 	render(mlx, scene);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);

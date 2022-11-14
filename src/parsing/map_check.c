@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 12:16:42 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:59:18 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
 			is_object = insert_only(ft_lstselect(ori, ++i), split);
 			insert_objects(ft_lstselect(ori, i), split, is_object);
 			ft_lstadd_back(&data, ft_lstnew());
+			free(split);
 		}
 		line = get_next_line(fd);
 	}
@@ -115,6 +116,7 @@ t_list	*map_init(const char *file)
 		ft_error("Malloc failure");
 	}
 	data_insert(data, fd, line, split);
+	free(split);
 	close(fd);
 	free(line);
 	return (data);
