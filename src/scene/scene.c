@@ -6,15 +6,15 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:30:02 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 12:20:06 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:39:33 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scene.h"
 
-t_vec3	vqudplus(t_point3 o, t_vec3 a, t_vec3 b, t_vec3 c)
+t_point3	vqudplus(t_point3 o, t_vec3 a, t_vec3 b, t_vec3 c)
 {
-	t_vec3	init;
+	t_point3	init;
 
 	init.x = o.x + a.x + b.x + c.x;
 	init.y = o.y + a.y + b.y + c.y;
@@ -47,6 +47,6 @@ t_camera	camera(t_canvas *canvas, t_point3 orig, int fov, t_vec3 vec)
 	cam.vertical = vmult(cross_val[1], cam.viewport_h);
 	half_vec[0] = vdivide(cam.horizontal, -2);
 	half_vec[1] = vdivide(cam.vertical, -2);
-	cam.left_bottom = vqudsplus(cam.orig, half_vec[0], half_vec[1], vec);
+	cam.left_bottom = vqudplus(cam.orig, half_vec[0], half_vec[1], vec);
 	return (cam);
 }
