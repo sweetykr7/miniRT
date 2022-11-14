@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   object_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:21:42 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 18:54:13 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:56:03 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	rotate_x(int angle, t_mlx *mlx)
 	double		y1;
 	double		z1;
 	double		rad;
-	double		len;
 
 	obj = get_current_object(mlx->scene);
 	y1 = obj->element->dir.y;

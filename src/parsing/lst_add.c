@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:48:42 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 11:47:17 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:53:15 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void lst_rgb(t_list *data, char *s)
 	{
 		num = ft_atoi(split[i]);
 		if (num > 255 || num < 0)
-		{
-			free(data);
 			ft_error("RGB overflow");
-		}
 		data->rgb[i] = ft_atoi(split[i]);
 		i++;
 	}
+	if (i != 3)
+		ft_error("file currupted");
 }
+
 void lst_vec(t_list *data, char *s)
 {
 	char	**split;
@@ -49,7 +49,7 @@ void lst_vec(t_list *data, char *s)
 	if (data->vec[0] == 0 && data->vec[1] == 0 && data->vec[2] == 0)
 		ft_error("No Zero Vector");
 	if (i != 3)
-		ft_error("Fire currupted");
+		ft_error("File currupted");
 }
 
 void lst_orig(t_list *data, char *s)
@@ -64,4 +64,6 @@ void lst_orig(t_list *data, char *s)
 		data->ori[i] = ft_atod(split[i]);
 		i++;
 	}
+	if (i != 3)
+		ft_error("File currupted");
 }

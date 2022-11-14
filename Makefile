@@ -6,13 +6,13 @@
 #    By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:23:19 by sooyokim          #+#    #+#              #
-#    Updated: 2022/11/10 13:59:36 by jinwoole         ###   ########.fr        #
+#    Updated: 2022/11/14 11:55:29 by jinwoole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 HEADERS = includes
 
 MLXDIR = miniLibX
@@ -61,8 +61,7 @@ OBJECTS = $(SRCS:.c=.o)
 	$(MAKE) -C $(MLXDIR)
 	cp $(MLXDIR)/$(LIBMLX) ./
 	$(MAKE) all -C $(LIBFT_DIR)
-	$(CC) -g -I $(MLXDIR) -I $(HEADERS) -I $(LIBFT_DIR) -c $< -o $@ -O3
-#ㅇㅣ러ㄴ시바
+	$(CC) $(CFLAGS) -I $(MLXDIR) -I $(HEADERS) -I $(LIBFT_DIR) -c $< -o $@ -O3
 
 $(NAME) : $(OBJECTS)
 	$(CC) -o $@ $^ $(LIBFT_LNK) $(MLX_LNK) 

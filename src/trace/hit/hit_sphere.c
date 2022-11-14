@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit_sphere.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:56:45 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 11:00:47 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:04:28 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ double	sp_discriminant(t_object *sp_obj, t_ray *ray, double *half_b, double *a)
 {
 	t_object_value	*sp;
 	double			c;
-	double			r;
 	double			discriminant;
-	t_vec3			delta_p;
 
 	sp = sp_obj->element;
 	*a = vlength2(ray->dir);
@@ -34,7 +32,6 @@ t_bool	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 {
 	double	a;
 	double	half_b;
-	double	c;
 	double	discriminant;
 	double	root;
 

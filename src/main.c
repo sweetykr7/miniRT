@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/13 15:34:51 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:05:55 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	scene_set(t_list *e, t_scene *scene)
 t_scene	*scene_init(t_list *d)
 {
 	t_scene		*scene;
-	t_object	*lights;
-	double		ka;
 	int			i;
 
 	i = 0;
@@ -78,9 +76,9 @@ int	main(int ac, const char **av)
 
 	if (ac != 2)
 		ft_error("Put 1 argument\n");
-	data = map_init(av[1], scene);
+	data = map_init(av[1]);
 	scene = scene_init(data);
-	mlx = init_mlx(av, scene);
+	mlx = init_mlx(scene);
 	mlx->scene = scene;
 	render(mlx, scene);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);

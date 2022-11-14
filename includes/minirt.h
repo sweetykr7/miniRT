@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:32:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/10 11:17:03 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:59:20 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		camera_move(t_scene *scene, t_mlx *mlx, char option);
 void		object_control(int key, t_mlx *mlx);
 void		object_rotate(int key, t_mlx *mlx);
 t_mlx		*mlx_structure_init(t_mlx *mlx, t_scene *scene);
-t_mlx		*init_mlx(const char **av, t_scene *scene);
+t_mlx		*init_mlx(t_scene *scene);
 t_img		new_image(t_mlx *mlx, t_scene *scene);
 t_object	*get_current_object(t_scene *scene);
 int			terminate_minirt(t_mlx *mlx);

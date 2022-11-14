@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 11:49:06 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:02:13 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,14 @@ t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
 	return (data);
 }
 
-t_list	*map_init(const char *file, t_scene *scene)
+t_list	*map_init(const char *file)
 {
 	char	**split;
 	char	*line;
 	int		fd;
 	t_list	*data;
 
+	split = NULL;
 	fd = open_file(file);
 	line = get_next_line(fd);
 	if (line == NULL)

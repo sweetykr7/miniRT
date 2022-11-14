@@ -24,6 +24,7 @@ int error_check(char *str, int cnt, int flag)
 {
 	int	*error;
 
+	error = NULL;
 	if (*str == '.')
 	{
 		str++;
