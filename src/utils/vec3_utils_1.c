@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec3_utils_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:22:34 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 10:31:31 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:27:13 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ t_point3	color3(double r, double g, double b)
 {
 	t_color3	color;
 
-	color.x = r;
-	color.y = g;
-	color.z = b;
+	color.x = r / 255;
+	color.y = g / 255;
+	color.z = b / 255;
 	return (color);
 }
 
@@ -53,4 +53,3 @@ double	vlength2(t_vec3 vec)
 {
 	return (vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec3_utils_3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:31:25 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/08 10:31:26 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:26:04 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ t_vec3	vdivide(t_vec3 vec, double t)
 	vec.x *= 1 / t;
 	vec.y *= 1 / t;
 	vec.z *= 1 / t;
-
 	return (vec);
 }
 
