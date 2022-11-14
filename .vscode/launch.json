@@ -9,7 +9,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"program": "miniRT",
-			"args": "/Users/jinwoole/branch/map.rt",
+			"args": "/Users/sooyokim/42seoul/collabo/miniRT2/map.rt",
 			"cwd": "${fileDirname}",
 			"preLaunchTask": "makelldb: make"
 		}

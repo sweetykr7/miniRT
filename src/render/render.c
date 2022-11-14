@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
+/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:36 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 12:17:48 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:39:08 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ void	render(t_mlx *mlx, t_scene *scene)
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, \
-								(mlx->img.img_ptr), 0, 0);
+								(mlx->img.img_ptr), 0, 0);	
 }

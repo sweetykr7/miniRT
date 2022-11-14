@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
+/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 14:17:24 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:53:29 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,53 +84,57 @@ void	insert_objects(t_list *data, char **s, int flag)
 }
 
 
-t_list	*data_insert(t_list *ori, int fd, char *line, char **split)
+t_list	*data_insert(t_list *ori, int fd, char **split)
 {
 	int		is_object;
 	int		i;
+	char	*line;
 	t_list	*data;
 
 	i = -1;
+	line = get_next_line(fd);
 	while (line)
 	{
 		if (line[0])
 		{
 			is_object = FALSE;
 			split = my_split(line, ' ');
+			free(line);
 			is_object = insert_only(ft_lstselect(ori, ++i), split);
 			insert_objects(ft_lstselect(ori, i), split, is_object);
 			ft_lstadd_back(&data, ft_lstnew());
-		}
+		}		
 		line = get_next_line(fd);
 	}
+	// free(line);
 	return (data);
 }
 
 t_list	*map_init(const char *file)
 {
 	char	**split;
-	char	*line;
+	// char	*line;
 	int		fd;
 	t_list	*data;
 
 	split = NULL;
 	fd = open_file(file);
-	line = get_next_line(fd);
-	if (line == NULL)
-	{
-		close(fd);
-		ft_error("Empty file");
-	}
+	// line = get_next_line(fd);
+	// if (line == NULL)
+	// {
+	// 	close(fd);
+	// 	ft_error("Empty file");
+	// }
 	data = ft_lstnew();
 	if (data == NULL)
 	{
 		close(fd);
-		free(line);
+		// free(line);
 		ft_error("Malloc failure");
 	}
-	data_insert(data, fd, line, split);
+	data_insert(data, fd, split);
 	free(split);
 	close(fd);
-	free(line);
+	// free(line);
 	return (data);
 }
