@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phong_lighting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
+/*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:37:15 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 12:25:01 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/15 18:07:01 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ t_color3	point_light_get(t_scene *scene, t_light *light)
 		return (color3(0, 0, 0));
 	light_dir = vunit(light_dir);
 	diffuse = diffuse_color(scene, light, light_dir);
+	// diffuse = color3(0,0,0);
 	specular = specular_color(scene, light, light_dir);
 	brightness = light->bright_ratio * LUMEN;
-	return (vmult(vplus(vplus(scene->ambient, diffuse), specular), brightness));
+	// return (vmult(vplus(vplus(scene->ambient, diffuse), specular), brightness));
+	return (vmult(vplus(diffuse, specular), brightness));
 }
 
 t_color3	phong_lighting(t_scene *scene)

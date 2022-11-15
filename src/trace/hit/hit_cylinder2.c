@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:30:35 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/09 12:26:58 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:23:48 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	hit_cylinder_side(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
 	rec->t = root;
 	rec->p = ray_at(ray, root);
 	rec->normal = get_cylinder_normal(cy_obj->element, rec->p, hit_height);
-	set_face_normal(ray, rec);
+	// set_face_normal(ray, rec);
 	rec->albedo = cy_obj->albedo;
 	return (1);
 }
