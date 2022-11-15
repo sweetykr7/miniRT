@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:28:56 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 16:19:33 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:46:32 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_scene	*scene_init(t_list *d)
 
 	i = 0;
 	set_check(check);
-	scene = (t_scene *)malloc(sizeof(t_scene));
+	scene = (t_scene *)ft_calloc(sizeof(t_scene), 1);
 	if (!scene)
 		ft_error("Malloc failure");
 	while (i < ft_lstsize(d))

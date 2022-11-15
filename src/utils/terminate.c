@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:30:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/15 14:16:46 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:40:01 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,4 @@ void	ft_error(char *err)
 	ft_putendl_fd("Error", 2);
 	ft_putendl_fd(err, 2);
 	exit(1);
-}
-
-int	error_return_zero(int *error)
-{
-	*error = 1;
-	return (0);
 }

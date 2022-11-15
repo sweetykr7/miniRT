@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:22:19 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 13:56:28 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:44:50 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@ int	error_check(char *str, int cnt, int flag)
 	{
 		str++;
 		if (!(*str))
-			return (error_return_zero(error));
+			ft_error("atod error");
 		str--;
 	}
 	if (*str < '0' || *str > '9')
 	{
 		if (*str != '.' || (*str == '.' && flag))
-			return (error_return_zero(error));
+			ft_error("atod error");
 	}
 	if (cnt == 15 && flag)
 		return (-1);
 	if (cnt == 15 && *str != '.')
-		return (error_return_zero(error));
+		ft_error("atod error");
 	else if (cnt == 15 && *str == '.')
 		return (-1);
 	return (1);
@@ -71,9 +71,9 @@ double	atod_input_calculator(char *str, double m, double num)
 	while (*str)
 	{
 		if (error_check(str, cnt, flag) == 0)
-			ft_error("double error");
+			ft_error("atod error");
 		if (error_check(str, cnt, flag) == -1)
-			ft_error("double error");
+			ft_error("atod error");
 		if (*str == '.')
 		{
 			temp = 0.1;

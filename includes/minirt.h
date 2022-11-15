@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:32:00 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 11:59:20 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:40:05 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ t_object	*get_current_object(t_scene *scene);
 int			terminate_minirt(t_mlx *mlx);
 double		ft_atod(char *str);
 void		ft_error(char *err);
-int			error_return_zero(int *error);
 
 #endif

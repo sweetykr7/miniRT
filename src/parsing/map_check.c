@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:51:24 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 16:01:32 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:19:16 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,11 @@ void	insert_objects(t_list *data, char **s, int flag)
 	split_free(s);
 }
 
-t_list	*data_insert(t_list *ori, int fd, char **split)
+void	data_insert(t_list *ori, int fd, char **split)
 {
 	int		is_object;
 	int		i;
 	char	*line;
-	t_list	*data;
 
 	i = -1;
 	line = get_next_line(fd);
@@ -79,11 +78,10 @@ t_list	*data_insert(t_list *ori, int fd, char **split)
 			free(line);
 			is_object = insert_only(ft_lstselect(ori, ++i), split);
 			insert_objects(ft_lstselect(ori, i), split, is_object);
-			ft_lstadd_back(&data, ft_lstnew());
-		}		
+			ft_lstadd_back(&ori, ft_lstnew());
+		}
 		line = get_next_line(fd);
 	}
-	return (data);
 }
 
 t_list	*map_init(const char *file)
