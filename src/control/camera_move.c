@@ -6,14 +6,13 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:29:30 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/14 12:20:28 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:15:13 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "utils.h"
 #include "scene.h"
-#include <stdio.h>
 
 void	fov_control(t_scene *scene, char option)
 {
@@ -22,14 +21,12 @@ void	fov_control(t_scene *scene, char option)
 		if (scene->camera.fov >= 175)
 			return ;
 		scene->camera.fov = scene->camera.fov + FOV_GAP;
-		printf("FOV : %d\n", scene->camera.fov);
 	}
 	if (option == '-')
 	{
 		if (scene->camera.fov <= 5)
 			return ;
 		scene->camera.fov = scene->camera.fov - FOV_GAP;
-		printf("FOV : %d\n", scene->camera.fov);
 	}
 }
 

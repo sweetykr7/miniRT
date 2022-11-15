@@ -6,7 +6,7 @@
 /*   By: jinwoole <indibooks@naver.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:10:02 by jinwoole          #+#    #+#             */
-/*   Updated: 2022/11/14 15:58:21 by jinwoole         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:17:49 by jinwoole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../libft/includes/libft.h"
 # include "../../includes/minirt.h"
-# include <stdio.h> //완성하기 전 지워야.
 
 t_list	*map_init(const char *file);
 void	lst_rgb(t_list *data, char *s);
