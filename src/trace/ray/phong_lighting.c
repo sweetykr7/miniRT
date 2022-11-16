@@ -6,7 +6,7 @@
 /*   By: sooyokim <sooyokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:37:15 by sooyokim          #+#    #+#             */
-/*   Updated: 2022/11/15 18:07:01 by sooyokim         ###   ########.fr       */
+/*   Updated: 2022/11/16 10:51:38 by sooyokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,8 @@ t_color3	point_light_get(t_scene *scene, t_light *light)
 		return (color3(0, 0, 0));
 	light_dir = vunit(light_dir);
 	diffuse = diffuse_color(scene, light, light_dir);
-	// diffuse = color3(0,0,0);
 	specular = specular_color(scene, light, light_dir);
 	brightness = light->bright_ratio * LUMEN;
-	// return (vmult(vplus(vplus(scene->ambient, diffuse), specular), brightness));
 	return (vmult(vplus(diffuse, specular), brightness));
 }
 
